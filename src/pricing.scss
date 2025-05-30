@@ -16,7 +16,9 @@
   }
   .nav-tabs .nav-link {
     background: none !important;
+    flex-direction: column;
     font-weight: 500;
+    font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: center;

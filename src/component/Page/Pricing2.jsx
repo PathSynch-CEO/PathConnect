@@ -122,7 +122,7 @@ const Pricing2 = () => {
           justify
           onSelect={(k) => setActiveTab(k)}
         >
-          <Tab eventKey="Reviews" title={<><img src="/ch1.svg" alt="Profile Icon" /> Reviews</>}>
+          <Tab eventKey="Reviews" title={<><img src="/ch1.svg" alt="Profile Icon" /> <h4>Reviews</h4></>}>
             {!showPricingTab ? (
               <div className="choose-plan pricing-high">
                 <div className="pricing-container">
@@ -155,7 +155,7 @@ const Pricing2 = () => {
             title={
               <>
                 <img src="/ch2.svg" alt="Loyalty Icon" />
-                Loyalty
+                <h4>Loyalty</h4>
               </>
             }
           >
@@ -313,7 +313,7 @@ const Pricing2 = () => {
                   alt="Rewards Icon"
                   style={{ width: "90px" }}
                 />
-                Reviews & Loyalty
+                <h4>Reviews & Loyalty</h4>
               </>
             }
           >
