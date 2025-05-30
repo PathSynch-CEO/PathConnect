@@ -1,0 +1,103 @@
+.careers-section {
+    padding: 2rem 5rem;
+    text-align: center;
+    
+  
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #396746;
+    }
+  
+    .section-description {
+      margin-bottom: 3rem;
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+  
+    .openings-title {
+      font-size: 30px;
+      margin-bottom: 2rem;
+      color: #396746;
+    }
+  
+    .openings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+  
+      .job-card {
+        background: rgb(57 103 70 / 61%);
+    padding: 1rem;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+    width: 320px;
+    color: white;
+    height: 157px;
+        
+        &:hover {
+          transform: translateY(-5px);
+        }
+  
+        .job-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+  
+          h4 {
+            font-size: 1.2rem;
+          }
+  
+          .job-type {
+            background: #fdd835;
+            color: #000;
+            padding: 0.3rem 0.6rem;
+            border-radius: 5px;
+            font-weight: bold;
+          }
+        }
+  
+        .job-location {
+          margin: 0.5rem 0;
+          font-size: 0.9rem;
+          text-align: left;
+          opacity: 0.8;
+        }
+  
+        .apply-link {
+          text-decoration: none;
+          color: #fdd835;
+          text-align: left;
+          font-weight: bold;
+  
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  
+    .load-more {
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      background: #fdd835;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+  
+      &:hover {
+        background: #ffc107;
+      }
+    }
+  }
+  .link-wrap{
+    display: flex;
+    justify-content: flex-start;
+  }
+  .carrer-titles.careers-section {
+    background: #EDE7D7;
+}

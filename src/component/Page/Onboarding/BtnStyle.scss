@@ -1,0 +1,17 @@
+.fillBtn,
+.OutlineBtn {
+  font-weight: bold !important;
+  border-radius: 14px !important;
+  border: 2px solid transparent !important;
+  position: relative;
+}
+
+.fillBtn {
+  background-color: #FFE816 !important;
+  color: #396746 !important;
+}
+.OutlineBtn {
+  background-color: transparent !important;
+  border: 2px solid #FFE816 !important;
+  color: #FFE816 !important;
+}

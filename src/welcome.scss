@@ -1,0 +1,87 @@
+.campaign-builder-container {
+  padding: 35px 145px;
+    background: linear-gradient(180deg, #1b2b2b, #25422b);
+    color: #fff;
+    font-family: Arial, sans-serif;
+  
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+  
+      .highlight {
+        color: #ffd700;
+      }
+    }
+  
+    p {
+      text-align: center;
+      margin-bottom: 2rem;
+  
+      .link {
+        color: #ffd700;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  
+    .section {
+      margin-bottom: 2rem;
+  p{
+    text-align: left;
+    font-size: 22px;
+  }
+      h2 {
+        color: #ffd700;
+        margin-bottom: 0.5rem;
+      }
+    }
+  
+    .info-section {  
+      .info-card {
+        flex: 1;
+        padding: 1.5rem;        
+        border-radius: 10px;  
+        .icon {
+          font-size: 2rem;
+        }
+  
+        h3 {
+          margin: 1rem 0;
+          color: #ffd700;
+        }
+  
+        p {
+          text-align: left;
+          font-size: 22px;
+        }
+  
+        ul {
+          padding-left: 1.5rem;
+  
+          li {
+            margin-bottom: 0.5rem;
+            font-size: 22px;
+          }
+        }
+      }
+    }
+  
+    .next-btn {
+      display: block;
+      padding: 0.75rem 6rem;
+      background: #ffe816;
+      color: #396746 !important;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 21px;
+      &:hover {
+        background: #ffeb3b;
+      }
+    }
+  }
+  .googe-btn{
+    display: flex;
+    justify-content: flex-end;
+  }

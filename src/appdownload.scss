@@ -1,0 +1,94 @@
+.app-download {
+    display: flex;
+    
+    justify-content: space-between;
+    padding: 2rem;
+    color: #fff;
+.content2{
+    padding-top: 4rem;
+    width: 535px;
+    .download-text{
+        margin: 30px 0px;
+    }
+}
+  
+    .content {
+      max-width: 600px;
+      color: black;
+  
+      .title {
+        font-size: 2rem;
+        color: #fff;
+      }
+  
+      .subtitle {
+        font-size: 1.2rem;
+        margin: 0.5rem 0 1.5rem;
+      }
+  
+      .download-heading {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+  
+      .download-text {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+  
+      .input-container {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+  
+        .phone-input {
+          flex: 1;
+          padding: 0.8rem;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 1rem;
+        }
+  
+        .send-btn {
+          background: #fdd835;
+          color: black;
+          padding: 0.8rem 1.5rem;
+          border: none;
+          font-weight: 800;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background 0.3s;
+  
+          &:hover {
+            background: #ffc107;
+          }
+        }
+      }
+  
+      .message {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 2rem;
+      }
+  
+      .store-icons {
+        display: flex;
+        gap: 1rem;
+  
+        .icon {
+          height: 40px;
+          cursor: pointer;
+        }
+      }
+    }
+  
+    .image-section {
+      .phones-img {
+        max-width: 500px;
+        height: auto;
+        border-radius: 10px;
+        
+      }
+    }
+  }
+  

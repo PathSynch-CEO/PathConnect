@@ -1,0 +1,38 @@
+.privacy-policy {
+    padding: 3rem 5rem;
+   
+    .privacy-title {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #396746;
+    }
+  
+    .policy-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+  
+      .policy-section {
+        padding: 1.2rem;
+        border-radius: 8px;
+        transition: transform 0.2s ease-in-out;
+  
+        &:hover {
+          transform: translateY(-5px);
+        }
+  
+        .policy-heading {
+          font-size: 1.3rem;
+          color: #396746;
+        }
+  
+        .policy-text {
+          font-size: 1rem;
+          opacity: 0.9;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+  

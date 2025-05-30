@@ -1,0 +1,73 @@
+
+
+.email-confirmation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(90deg, #20292a 0%, #396746 100%);
+  min-height: 100vh;
+  color: #fff;
+  text-align: left;
+}
+
+.success-banner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #ffe816;
+  color: #1b5e20;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: 500;
+  width: 500px;
+  border: none;
+  max-width: 900px;
+  margin-bottom: 30px;
+  font-size: 25px;
+  .success-icon {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+}
+
+.email-card {
+  padding: 30px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 1100px;
+  text-align: left;
+
+  .email-heading {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .email-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+    .email-icon {
+      font-size: 24px;
+      color: #ffd700;
+      margin-right: 10px;
+    }
+
+    .email-address {
+      font-size: 30px;
+      font-weight: 300;
+    }
+  }
+
+  .email-instructions {
+    font-size: 22px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #ddd;
+  }
+  .google-btn {
+    display: flex;
+    justify-content: inherit!important;
+  }
+}

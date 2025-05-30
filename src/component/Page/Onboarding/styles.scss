@@ -1,0 +1,10 @@
+
+.subHeading {
+    font-size: 32px;
+  }
+  
+  @media (max-width: 500px) {
+    .subHeading {
+      font-size: 25px;
+    }
+  }

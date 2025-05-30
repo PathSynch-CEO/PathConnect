@@ -1,0 +1,28 @@
+
+.inputWrapper {
+    position: relative;
+    .label {
+      font-size: 20px;
+      color: white;
+      font-weight: bold;
+    }
+    .inputDesign {
+      padding: 0.8rem 0.8rem;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #FFFFFF40;
+      font-size: 18px;
+      border-radius: 0;
+      color: white;
+      &::placeholder {
+        color: #FFFFFF40;
+      }
+    }
+    .inputIcon {
+      position: absolute;
+      right: 0;
+      bottom: 10px;
+      color: white;
+    }
+  }
+  

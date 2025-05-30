@@ -1,0 +1,251 @@
+.about-main-wrap{
+  .container-about {
+    padding: 50px 151px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .carousel-container {
+    .owl-carousel {
+      padding: 30px 0px 30px 200px;
+    }
+    h2 {
+      text-align: center;
+    }
+    .owl-nav {
+      display: flex;
+    }
+    .owl-carousel .owl-item img {
+      display: block;
+      width: 100%;
+      -webkit-transform-style: preserve-3d;
+      height: 205px;
+      object-fit: cover;
+      border-radius: 13px;
+    }
+    .owl-item {
+      h3 {
+        font-size: 18px;
+        margin-top: 20px;
+      }
+      p {
+        color: #636363;
+        font-size: 15px;
+      }
+    }
+  }
+  
+  .content {
+    display: flex;
+    gap: 40px;
+  }
+  
+  .text-section {
+    max-width: 40%;
+  
+    .section-title {
+      font-size: 14px;
+      color: #777;
+      text-align: left;
+    }
+  
+    h1 {
+      font-size: 32px;
+      font-weight: bold;
+      color: #333;
+    }
+  }
+  
+  .text-box {
+    max-width: 60%;
+    padding: 20px;
+  }
+  
+  .text-box p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 20px;
+  }
+  .our-story {
+    padding: 50px 20px;
+    background: #f9fafb;
+    text-align: center;
+  
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+  
+    h5 {
+      font-size: 16px;
+      color: #666;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+  
+    h2 {
+      font-size: 32px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+  
+    .intro-text {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+  
+    .description {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 40px;
+    }
+  
+    .image-gallery {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+  
+      .image-large {
+        width: 533px;
+        height: auto;
+        border-radius: 10px;
+      }
+  
+      .image-small {
+        width: 380px;
+        height: 315px;
+        border-radius: 10px;
+      }
+    }
+  }
+  .timeline-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: url("../public/timeline-white.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 20px 50px 88px 85px;
+    border-radius: 10px;
+    width: 435px;
+    z-index: 1;
+  }
+  
+  .timeline-icon {
+    position: absolute;
+    left: 105px;
+    top: 0;
+    img {
+      width: 80px;
+    }
+  }
+  
+  .timeline-content {
+    text-align: left;
+  }
+  
+  .timeline-content h3 {
+    margin: 0 0 10px;
+  }
+  
+  .timeline-content p {
+    margin: 0;
+  }
+  .empty-div {
+    width: 373px;
+      height: 192px;
+    border: 2px dashed #396746;
+    border-left: 0;
+    border-bottom: 0;
+    position: absolute;
+    right: 26%;
+    top: 41%;
+    border-radius: 0px 20px 0px 0px;
+  }
+  .timeline-wrap {
+    display: flex;
+    position: relative;
+    padding: 0px 149px;
+    z-index: 1;
+  }
+  
+  .right-timeline {
+    flex-direction: row-reverse;
+    .timeline-item {
+      background: url("../public/timeline-grey.png");
+      background-repeat: no-repeat;
+      background-size: 100% 90%;
+      padding: 60px 50px 39px 25px;
+    }
+    .empty-div {
+      left: 26%;
+      border-right: 0;
+      border-radius: 20px 0px 0px 0px;
+      border-left: 2px dashed #396746;
+    }
+  }
+  .values-container {
+    padding: 30px 120px;
+    background-color: #f9fafb;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+  }
+  
+  .values-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: left ;
+  }
+  
+  .value-card {
+    padding: 20px;
+    border: 2px dashed #e5e7eb;
+    border-radius: 8px;
+    background-color: #ffffff;
+  }
+  
+  .value-card .icon {
+    width: 50px;
+    height: 50px;
+    background-color: #2f855a;
+    border-radius: 50%;
+  }
+  
+  .value-card .icon img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .value-card h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 15px 0px;
+  }
+  
+  .value-card p {
+    font-size: 14px;
+    color: #4a5568;
+  }
+  
+}
