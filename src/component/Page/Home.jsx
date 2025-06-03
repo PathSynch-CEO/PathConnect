@@ -11,7 +11,7 @@ function Home() {
 HTML Structure for Hero Section */}
       <div class="hero-section">
         <img className='circle_left' src='circle_left.svg' />
-        <div class="hero-content">
+        <div className="hero-content">
           <h1>Redefining <span class="loyalty">Loyalty</span>, Reinventing <span class="commerce">Commerce</span></h1>
           <p>PathSynch empowers your business to create meaningful connections with customers, enhancing loyalty, engagement, and revenue.</p>
           <div class="hero-buttons">
