@@ -60,7 +60,7 @@ HTML Structure for 'What is PathSynch' Section */}
         <div class="about-section">
 
           <div class="about-images">
-            <img class="lgsection2.svg" src="lgsection2.svg" alt="Team Discussion" />
+            <img className="lgsection2" src="lgsection2.svg" alt="Team Discussion"/>
 
           </div>
           <div class="about-content">
@@ -123,47 +123,47 @@ HTML Structure for 'What is PathSynch' Section */}
         </div>
         <button class="sign-up-btn">Sign Up Free</button>
       </div> */}
-      <div className="pathsynch-container">
-      <div className="content">
-        <h2>PathSynch Solutions</h2>
-        <p>
-          PathSynch’s advanced analytics dashboard that empowers SMBs with real-time
-          insights to optimize customer engagement, loyalty programs, and business
-          performance, powered by blockchain technology, AI, purchase, and location data.
-        </p>
-        <button className="sign-up">Sign Up Free</button>
-      </div>
-      <div className="pyramid">
-        <div className="tier top">
-          <div className="icon">
-                <img class="a1" src="a1.png" alt="Workspace Collaboration" />
-              </div>
-          <h3>Marketplace</h3>
-          <p>PathSynch Marketplace</p>
-          <span>
-            A dynamic two-sided marketplace<br></br> introducing Consumers to<br></br>  Merchants on a hyper-local level.
-          </span>
-          <Link to="/product-page">↳ Read More</Link>
-        </div>
-        <div className="tier middle">
-          <div className="icon"> <img class="a1" src="a2.svg" alt="Workspace Collaboration" /></div>
-          <h3>Reviews</h3>
-          <p>PathConnect</p>
-          <span>A real-time customer feedback and<br></br> analytics tool.</span>
-          <Link to="/pathconnect-page">↳ Read More</Link>
-        </div>
-        <div className="tier bottom">
-          <div className="icon"> <img class="a1" src="a3.svg" alt="Workspace Collaboration" /></div>
-          <h3>Loyalty</h3>
-          <p>CommerceSynch</p>
-          <span>
-            A powerful membership, loyalty, and commerce engine <br></br> for eCommerce and Brick & Mortar businesses.
-          </span>
-          <Link to="/pathcommercesync">↳ Read More</Link>
-        </div>
-      </div>
-    </div>
 
+          <div className="pathsynch-container">
+          <div className="content">
+            <h2>PathSynch Solutions</h2>
+            <p>
+              PathSynch’s advanced analytics dashboard that empowers SMBs with real-time
+              insights to optimize customer engagement, loyalty programs, and business
+              performance, powered by blockchain technology, AI, purchase, and location data.
+            </p>
+            <button className="sign-up">Sign Up Free</button>
+          </div>
+          <div className="pyramid">
+            <div className="tier top">
+              <div className="icon">
+                    <img class="a1" src="a1.png" alt="Workspace Collaboration" />
+                  </div>
+              <h3>Marketplace</h3>
+              <p>PathSynch Marketplace</p>
+              <span>
+                A dynamic two-sided marketplace<br></br> introducing Consumers to<br></br>  Merchants on a hyper-local level.
+              </span>
+              <Link to="/product-page">↳ Read More</Link>
+            </div>
+            <div className="tier middle">
+              <div className="icon"> <img class="a1" src="a2.svg" alt="Workspace Collaboration" /></div>
+              <h3>Reviews</h3>
+              <p>PathConnect</p>
+              <span>A real-time customer feedback and<br></br> analytics tool.</span>
+              <Link to="/pathconnect-page">↳ Read More</Link>
+            </div>
+            <div className="tier bottom">
+              <div className="icon"> <img class="a1" src="a3.svg" alt="Workspace Collaboration" /></div>
+              <h3>Loyalty</h3>
+              <p>CommerceSynch</p>
+              <span>
+                A powerful membership, loyalty, and commerce engine <br></br> for eCommerce and Brick & Mortar businesses.
+              </span>
+              <Link to="/pathcommercesync">↳ Read More</Link>
+            </div>
+          </div>
+        </div>
       {/* fghjkl */}
       <div className="marketplace" id="marketplace">
         <h4 className="subtitle">Marketplace Solution</h4>
@@ -338,7 +338,7 @@ HTML Structure for 'What is PathSynch' Section */}
                   e-commerce and in-store systems. Gamified blockchain technology
                   ensures transparency, trust, and customer excitement.
                 </p>
-                <div className="image-placeholder"><img src='r1.svg' /></div>
+                <div className="image-placeholder"><img className="home-commercesynch-img" src='r1.svg' /></div>
               </div>
             </div>
 
@@ -350,7 +350,7 @@ HTML Structure for 'What is PathSynch' Section */}
                   programs and streamlined membership experiences, all while leveraging
                   blockchain-based gamification to keep your customers coming back.
                 </p>
-                <div className="image-placeholder"><img src='r2.svg' /></div>
+                <div className="image-placeholder"><img className="home-commercesynch-img" src='r2.svg' /></div>
               </div>
 
               <div className='arrow-heading'>

@@ -41,6 +41,7 @@ code {
   list-style: none;
   gap: 2rem;
   position: relative;
+  z-index: 6;
 }
 
 .nav-links li {
