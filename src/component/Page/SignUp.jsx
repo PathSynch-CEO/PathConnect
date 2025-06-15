@@ -50,8 +50,8 @@ const SignUp = () => {
      <div className="auth-screen">
        {/* Left Side - Authentication Form */}
        <div className="auth-form">
-         <button className="google-btn">Sign up with Google</button>
-         <div className="divider">OR</div>
+         {/* <button className="google-btn">Sign up with Google</button>
+         <div className="divider">OR</div> */}
          <input
                 className="signup-input"
                 type="email"

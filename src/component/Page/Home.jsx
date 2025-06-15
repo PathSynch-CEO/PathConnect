@@ -16,7 +16,7 @@ HTML Structure for Hero Section */}
           <p>PathSynch empowers your business to create meaningful connections with customers, enhancing loyalty, engagement, and revenue.</p>
           <div class="hero-buttons">
           <Link to="/request-demo"><button class="demo-btn">Book a Demo</button></Link>
-            <Link to="/signup"><button class="signup-btn">Sign Up Free</button></Link>
+            {/* <Link to="/signup"><button class="signup-btn">Sign Up Free</button></Link> */}
           </div>
           <p>Linking People, Places, and Possibilities</p>
           <div class="feature-links">

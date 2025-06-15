@@ -94,6 +94,7 @@ const LandingDesign = () => {
         localStorage.setItem("paymentDetails", JSON.stringify(paymentDetails));
 
         const stripe = await loadStripe("pk_live_51OAeaRCwhZJHjP6KcmrheTOmDNRbdTweqGPX6SVbrQTF9DHi8P2xegWP61D6R1NqZ5GkiLQeU17hGvGSjB8VZGXR0099BPjO83");
+        //USE FOR TESTING:: const stripe = await loadStripe("pk_test_51OAeaRCwhZJHjP6KxgcYEnNjl9krmgFtfkZi9bi3T7rvY8q0CDXjzeSrn5WBdvPALchyeiTz749HGS7VlrqBxsNP00T8zbvMfa");
         const { error } = await stripe.redirectToCheckout({ 
           sessionId: data.sessionId 
         });
@@ -221,7 +222,7 @@ const LandingDesign = () => {
               <img src="truck.svg" alt="Fast delivery" /> Fast US delivery
             </span>
             <span className="nfc-badge">
-              <img src="days.svg" alt="Money back" /> 30-day Money Back Guarantee
+              <img src="days.png" alt="Money back" /> 14-day Money Back Guarantee
             </span>
           </div>
 

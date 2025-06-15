@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+
 import Footer from '../Footer';
 import Header from '../Header';
 
@@ -7,6 +8,8 @@ const Signup2 = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const email = location.state?.email || '';
+  const [searchParams] = useSearchParams();
+  const sessionId = searchParams.get("session_id");
 
   const [formData, setFormData] = useState({
     buisnessname: '',
@@ -81,7 +84,7 @@ const Signup2 = () => {
       setErrors(validationErrors);
       return;
     }
-  
+
     setLoading(true);
     const formatPhoneNumber = (number) => {
       if (!number) return number;
@@ -89,16 +92,32 @@ const Signup2 = () => {
       const formatted = cleaned.replace(/^(\d{3})(\d{3})(\d{4})$/, '($1) $2-$3');
       return formatted;
     };
-    const finalFormData = {
+
+    var finalFormData = {
       ...formData,
       profile: formData.profile || '',
       dob: formData.dob || '',
       trail: formData.trail || '',
       landline: formatPhoneNumber(formData.landline),
     };
+
+    if(sessionId){
+      const paymentDetails = JSON.parse(localStorage.getItem("paymentDetails") || '{}');
+      const paymentId = paymentDetails.paymentIntentId;
+      const paymentDate = paymentDetails.paymentDate;
+      const amount = paymentDetails.amount;
+      const subscriptionPlan = paymentDetails.product.plan;
+      finalFormData = {
+        ...finalFormData,
+        sessionId: sessionId,
+        paymentId: paymentId || '',
+        paymentDate: paymentDate || '',
+        amount: amount || '',
+        subscriptionPlan: subscriptionPlan || '',
+      };
+    }
   
     try {
-      console.log("Sending request with payload:", finalFormData);
       const response = await fetch('https://api.pathsynch.com/v2/auth/register/merchant', {
         method: 'POST',
         headers: {
