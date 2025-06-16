@@ -16,7 +16,7 @@ const PaymentSuccess = () => {
       try {
         // Making the request with sessionId in the path
         const response = await fetch(`https://api.pathsynch.com/v2/auth/verify-payment/${sessionId}`);
-
+        //const response = await fetch(`http://localhost:8181/v2/auth/verify-payment/${sessionId}`);
         if (!response.ok) {
           throw new Error('Verification request failed');
         }
@@ -27,11 +27,12 @@ const PaymentSuccess = () => {
           const paymentDetails = JSON.parse(localStorage.getItem("paymentDetails") || '{}');
           paymentDetails.status = "success";
           paymentDetails.paymentDate = new Date().toISOString();
+          paymentDetails.paymentIntentId = data.paymentIntentId;
+          paymentDetails.payment_status = data.payment_status;
           localStorage.setItem("paymentDetails", JSON.stringify(paymentDetails));
-
           setPaymentStatus('success');
           setTimeout(() => {
-          navigate("/merchantSignup") },5000)
+          navigate(`/merchantSignup?session_id=${paymentDetails.sessionId}`) },5000)
         } else {
           throw new Error("Payment not completed");
         }
@@ -56,7 +57,7 @@ const PaymentSuccess = () => {
       return <p>Please wait while we verify your payment details...</p>;
     }
     if (paymentStatus === 'success') {
-      return <h2>Thank you! Your payment was successful.</h2>;
+      return <h2>Thank you! Your payment was successful. WAIT To be redirected to signup screen to complete the process.</h2>;
     }
     if (paymentStatus === 'failed') {
       return <h2>Payment Failed!</h2>;

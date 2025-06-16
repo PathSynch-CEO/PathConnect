@@ -52,7 +52,6 @@ const Onboardingss = () => {
   const [modal, setModal] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const paymentDetails = JSON.parse(localStorage.getItem("paymentDetails") || '{}');
-  console.log(paymentDetails)
 
   // Toggle function to show/hide modal
   const toggleModal = () => {
@@ -220,7 +219,6 @@ const Onboardingss = () => {
         card:paymentDetails?.product?.plan
 
       };
-console.log(paymentDetails,"jhweishfhb")
       const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
@@ -234,7 +232,6 @@ console.log(paymentDetails,"jhweishfhb")
       }
 
       const data = await response.json();
-      console.log("Success:", data);
       window.location.href = "https://pathmanager.pathsynch.com";
     } catch (error) {
       console.error("Error:", error);

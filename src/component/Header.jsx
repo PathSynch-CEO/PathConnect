@@ -142,9 +142,9 @@ const Header = () => {
             <Link to="/login">
               <span className="login">Login</span>
             </Link>
-            <Link to="/signup">
+            {/* <Link to="/signup">
               <span className="signup">Sign Up Free</span>
-            </Link>
+            </Link> */}
           </div>
         </nav>
       </header>

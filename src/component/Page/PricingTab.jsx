@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';  // Import useNavigate
 import { loadStripe } from "@stripe/stripe-js";
 
 function PricingTab({ data }) {
-  console.log(data)
   const navigate = useNavigate();  // Initialize navigate
   const [activeTab, setActiveTab] = useState('Reviews');
   const [billingCycle, setBillingCycle] = useState('monthly');
@@ -38,7 +37,7 @@ function PricingTab({ data }) {
       state: { 
         totalPrice: totalPrice, 
         selectedPlanAmount: selectedPlanAmount, 
-        plan: ['1 NFC Card', '3 NFC Cards', '5/10 NFC Cards'][planIndex] 
+        plan: ['pmgrowth', 'pmpoweruser', 'pmenterprise'][planIndex] 
       } 
     });
   };
@@ -66,6 +65,7 @@ function PricingTab({ data }) {
               </button>
             </div>
             </div>
+            <h3>PathConnect powered by PathManager</h3>
             <div className="plans">
               {['1 NFC Card', '3 NFC Cards', '5/10 NFC Cards'].map((plan, index) => (
                 <div className="plan highlight" key={index}>
