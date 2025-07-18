@@ -12,7 +12,7 @@ const Localdeals = () => {
         <div class="container">
           <h1>Local Deals</h1>
           <p>Connect with Local Shoppers, Drive Foot Traffic, and Build Lasting Loyalty.</p>
-          <button className='common_btn'>Create a free account to get started</button>
+          {/* <button className='common_btn'>Create a free account to get started</button> */}
         </div>
         <div class="circle-decor top-left"></div>
         <div class="circle-decor bottom-right"></div>

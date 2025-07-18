@@ -107,6 +107,10 @@ const Signup2 = () => {
       const paymentDate = paymentDetails.paymentDate;
       const amount = paymentDetails.amount;
       const subscriptionPlan = paymentDetails.product.plan;
+      const subscription_id = paymentDetails.subscription_id;
+      const invoice_id = paymentDetails.invoice_id;
+      const invoice_number = paymentDetails.invoice_number;
+      const payment_frequency = paymentDetails.payment_frequency;
       finalFormData = {
         ...finalFormData,
         sessionId: sessionId,
@@ -114,11 +118,16 @@ const Signup2 = () => {
         paymentDate: paymentDate || '',
         amount: amount || '',
         subscriptionPlan: subscriptionPlan || '',
+        stripe_subscription_id: subscription_id || '',
+        invoice_id: invoice_id || '',
+        invoice_number: invoice_number || '',
+        payment_frequency: payment_frequency || '',
       };
     }
   
     try {
-      const response = await fetch('https://api.pathsynch.com/v2/auth/register/merchant', {
+      const response = await fetch(`https://api.pathsynch.com/v2/auth/register/merchant`, {
+      //const response = await fetch('http://localhost:8181/v2/auth/register/merchant', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

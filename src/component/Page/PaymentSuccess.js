@@ -22,19 +22,23 @@ const PaymentSuccess = () => {
         }
 
         const data = await response.json();
-
+       // console.log("subscription info;",data);
         if (data.paid) {
           const paymentDetails = JSON.parse(localStorage.getItem("paymentDetails") || '{}');
           paymentDetails.status = "success";
           paymentDetails.paymentDate = new Date().toISOString();
           paymentDetails.paymentIntentId = data.paymentIntentId;
           paymentDetails.payment_status = data.payment_status;
+          paymentDetails.subscription_id = data.subscription_id;
+          paymentDetails.invoice_id = data.invoice_id;
+          paymentDetails.invoice_number = data.invoice_number;
+          paymentDetails.payment_frequency = data.payment_frequency;
           localStorage.setItem("paymentDetails", JSON.stringify(paymentDetails));
           setPaymentStatus('success');
           setTimeout(() => {
           navigate(`/merchantSignup?session_id=${paymentDetails.sessionId}`) },5000)
         } else {
-          throw new Error("Payment not completed");
+          throw new Error("Payment not completed"); 
         }
       } catch (error) {
         console.error("Payment verification failed:", error);

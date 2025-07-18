@@ -13,7 +13,7 @@ const Things = () => {
         <div class="container">
           <h1>Things to do</h1>
           <p>Connect with Adventure Seekers, Maximize Bookings, and Build Lasting Connections.</p>
-          <button className='common_btn'>Create a free account to get started</button>
+          {/* <button className='common_btn'>Create a free account to get started</button> */}
         </div>
         <div class="circle-decor top-left"></div>
         <div class="circle-decor bottom-right"></div>

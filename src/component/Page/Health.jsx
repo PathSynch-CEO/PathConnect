@@ -13,7 +13,7 @@ const Health = () => {
         <div class="container">
           <h1>Health and Beauty</h1>
           <p>Connect with Clients, Boost Bookings, and Build Lasting Relationships.</p>
-          <button className='common_btn'>Create a free account to get started</button>
+          {/* <button className='common_btn'>Create a free account to get started</button> */}
         </div>
         <div class="circle-decor top-left"></div>
         <div class="circle-decor bottom-right"></div>

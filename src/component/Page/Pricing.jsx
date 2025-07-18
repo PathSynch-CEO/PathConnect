@@ -15,7 +15,7 @@ const Pricing = () => {
                 <div class="container">
                     <h1>Pricing</h1>
                     <p>Flexible Plans Tailored to Your Business Needs.</p>
-                    <button className='common_btn'>Create a free account to get started</button>
+                    {/* <button className='common_btn'>Create a free account to get started</button> */}
                 </div>
                 <div class="circle-decor top-left"></div>
                 <div class="circle-decor bottom-right"></div>

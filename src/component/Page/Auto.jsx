@@ -14,7 +14,7 @@ const Auto = () => {
                 <div class="container">
                     <h1>Auto</h1>
                     <p>Drive Traffic, Build Loyalty, and Accelerate Your Business Growth.</p>
-               <button className='common_btn'>Create a free account to get started</button>
+               {/* <button className='common_btn'>Create a free account to get started</button> */}
                 </div>
                 <div class="circle-decor top-left"></div>
                 <div class="circle-decor bottom-right"></div>

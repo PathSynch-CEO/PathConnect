@@ -13,7 +13,7 @@ function PricingTab({ data }) {
     monthly: [14.99, 69.99, 129],
     yearly: [143.99, 671.90, 1240],
   };
-
+  //console.log("whats in?",data);
   const isButtonEnabled = (plan) => {
     if (!data) return true;
     const selectedPlan = 
@@ -22,9 +22,9 @@ function PricingTab({ data }) {
       (data?.cards === 5 || data?.cards === 10 || data?.type === "PathConnect Pro Premium") ? '5/10 NFC Cards' :
       null;
     if (selectedPlan === '1 NFC Card') {
-      return true;
+      return plan === '1 NFC Card';
     } else if (selectedPlan === '3 NFC Cards') {
-      return plan === '3 NFC Cards' || plan === '5/10 NFC Cards';
+      return plan === '3 NFC Cards';
     } else if (selectedPlan === '5/10 NFC Cards') {
       return plan === '5/10 NFC Cards';
     }
@@ -33,11 +33,17 @@ function PricingTab({ data }) {
   const handlePayment = (planIndex) => {
     const selectedPlanAmount = pricing[billingCycle][planIndex].toFixed(2); 
     const totalPrice = parseFloat(data?.price) + parseFloat(selectedPlanAmount);
+
+    const plans = billingCycle === 'yearly' 
+    ? ['pmgrowth_yearly', 'pmpoweruser_yearly', 'pmenterprise_yearly']
+    : ['pmgrowth', 'pmpoweruser', 'pmenterprise'];
+
     navigate('/landing-page', { 
       state: { 
         totalPrice: totalPrice, 
         selectedPlanAmount: selectedPlanAmount, 
-        plan: ['pmgrowth', 'pmpoweruser', 'pmenterprise'][planIndex] 
+        plan: plans[planIndex], 
+        addOn: data.planId
       } 
     });
   };

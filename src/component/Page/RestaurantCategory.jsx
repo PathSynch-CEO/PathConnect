@@ -13,7 +13,7 @@ const RestaurantCategory = () => {
         <div class="container">
           <h1>Restaurants & Food</h1>
           <p>Fill Your Tables, Delight Your Customers, and Grow Your Business with PathSynch.</p>
-          <button className='common_btn'>Create a free account to get started</button>
+          {/* <button className='common_btn'>Create a free account to get started</button> */}
         </div>
         <div class="circle-decor top-left"></div>
         <div class="circle-decor bottom-right"></div>

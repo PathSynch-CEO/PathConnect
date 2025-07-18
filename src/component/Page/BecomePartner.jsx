@@ -11,10 +11,10 @@ const BecomePartner = () => {
                 <div class="container">
                     <h1>Join the PathSynch Partner Program </h1>
                     <p>Grow with Us, Earn Rewards, and Empower Businesses.</p>
-                     <Link to="/signup"><button className="common_btn">
+                     {/* <Link to="/signup"><button className="common_btn">
                                 Create a free account to get started
                               </button>
-                              </Link>
+                              </Link> */}
                 </div>
                 <div class="circle-decor top-left"></div>
                 <div class="circle-decor bottom-right"></div>

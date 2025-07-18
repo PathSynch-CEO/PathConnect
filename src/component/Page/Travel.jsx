@@ -14,7 +14,7 @@ const Travel = () => {
                 <div class="container">
                     <h1>Travel & Places to Stay</h1>
                     <p>Connect with Travelers, Maximize Bookings, and Create Memorable Stays.</p>
-               <button className='common_btn'>Create a free account to get started</button>
+               {/* <button className='common_btn'>Create a free account to get started</button> */}
                 </div>
                 <div class="circle-decor top-left"></div>
                 <div class="circle-decor bottom-right"></div>

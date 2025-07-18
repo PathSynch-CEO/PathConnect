@@ -12,7 +12,7 @@ const Experiences = () => {
                 <div class="container">
                     <h1>Experiences</h1>
                     <p>Connect with Adventurers, Inspire New Memories, and Drive Repeat Engagement.</p>
-                    <button className='common_btn'>Create a free account to get started</button>
+                    {/* <button className='common_btn'>Create a free account to get started</button> */}
                 </div>
                 <div class="circle-decor top-left"></div>
                 <div class="circle-decor bottom-right"></div>
