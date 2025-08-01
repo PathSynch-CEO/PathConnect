@@ -103,6 +103,7 @@ h5 {
     }
 
     .actions {
+      z-index: 1;
       display: flex;
       align-items: center;
       gap: 15px;
@@ -191,6 +192,9 @@ h5 {
   }
 
   .hero-content {
+    @media screen and (max-width: 480px) {
+      margin-top: 50px;  
+    }
     max-width: 100%;
     text-align: center;
 
@@ -309,7 +313,12 @@ h5 {
     align-items: center;
     gap: 20px;
     width: 100%;
-
+    .about-images > img {
+      @media screen and (max-width: 480px) {
+        width: 100%!important;
+        height: auto;
+      }
+    }
     .main-img {
       max-width: 100%;
       border-radius: 15px;
@@ -319,6 +328,20 @@ h5 {
       max-width: 50%;
       border-radius: 12px;
     }
+  }
+}
+
+.lgsection2 {
+  @media screen and (max-width: 480px) {
+    width: 100%!important;
+    height: auto;
+  }
+}
+
+.home-commercesynch-img {
+  @media screen and (max-width: 480px) {
+    width: 100%!important;
+    height: auto;
   }
 }
 
@@ -1438,10 +1461,17 @@ h5 {
   align-items: center;
   padding: 50px;
   background: #fff;
+  @media screen and (max-width: 480px) {
+    display: block;
+    position: relative;
+  }
+  
 
   .content {
     max-width: 40%;
-
+    @media screen and (max-width: 480px) {
+      max-width: fit-content
+    }
     h2 {
       font-size: 28px;
       font-weight: bold;
@@ -1467,6 +1497,10 @@ h5 {
   }
 
   .pyramid {
+    @media screen and (max-width: 480px) {
+      max-width: 100%;
+      height: auto;
+    }
     .tier {
       width: 100%;
       text-align: center;
@@ -1474,6 +1508,12 @@ h5 {
 
       margin: 10px 0;
       background: #f9f9f9;
+      @media screen and (max-width: 480px) {
+        max-width: fit-content;
+        height: auto;
+        margin: auto;
+        background: #ffffff!important;
+      }
 
       .icon {
         font-size: 24px;
@@ -1540,6 +1580,8 @@ h5 {
     }
   }
 }
+
+
 
 /* General placeholder color change */
 input::placeholder,
