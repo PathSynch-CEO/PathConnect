@@ -10,9 +10,9 @@ const Contact = () => {
         <div class="container">
           <h1>Contact Us</h1>
           {/* <p>Donec pulvinar ligula sit amet ultricies tincidunt.</p> */}
-          <button className="common_btn">
+          {/* <button className="common_btn">
           Create a free account to get started
-          </button>
+          </button> */}
         </div>
         <div class="circle-decor top-left"></div>
         <div class="circle-decor bottom-right"></div>

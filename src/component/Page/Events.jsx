@@ -13,7 +13,7 @@ const Events = () => {
                 <div class="container">
                     <h1>Events</h1>
                     <p>Promote Your Events, Fill Seats, and Keep Attendees Coming Back.</p>
-               <button className='common_btn'>Create a free account to get started</button>
+               {/* <button className='common_btn'>Create a free account to get started</button> */}
                 </div>
                 <div class="circle-decor top-left"></div>
                 <div class="circle-decor bottom-right"></div>

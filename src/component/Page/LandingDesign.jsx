@@ -59,10 +59,11 @@ const LandingDesign = () => {
     localStorage.setItem("zip", locationDetails?.zip || "");
     localStorage.setItem("state", locationDetails?.state || "");
     localStorage.setItem("country", locationDetails?.country || "");
-
+    //console.log("prod deets;",datas);
     setIsProcessingPayment(true);
     try {
       const response = await fetch("https://api.pathsynch.com/v2/auth/stripe-payment", {
+      //const response = await fetch("http://localhost:8181/v2/auth/stripe-payment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -94,7 +95,7 @@ const LandingDesign = () => {
         localStorage.setItem("paymentDetails", JSON.stringify(paymentDetails));
 
         const stripe = await loadStripe("pk_live_51OAeaRCwhZJHjP6KcmrheTOmDNRbdTweqGPX6SVbrQTF9DHi8P2xegWP61D6R1NqZ5GkiLQeU17hGvGSjB8VZGXR0099BPjO83");
-        //USE FOR TESTING:: const stripe = await loadStripe("pk_test_51OAeaRCwhZJHjP6KxgcYEnNjl9krmgFtfkZi9bi3T7rvY8q0CDXjzeSrn5WBdvPALchyeiTz749HGS7VlrqBxsNP00T8zbvMfa");
+        //const stripe = await loadStripe("pk_test_51OAeaRCwhZJHjP6KxgcYEnNjl9krmgFtfkZi9bi3T7rvY8q0CDXjzeSrn5WBdvPALchyeiTz749HGS7VlrqBxsNP00T8zbvMfa");
         const { error } = await stripe.redirectToCheckout({ 
           sessionId: data.sessionId 
         });

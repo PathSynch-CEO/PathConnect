@@ -165,11 +165,11 @@ const Pricing2 = () => {
         <div class="container">
           <h1>Pricing</h1>
           <p>Flexible Plans Tailored to Your Business Needs.</p>
-          <Link to="/signup">
+          {/* <Link to="/signup">
             <button className="common_btn">
               Create a free account to get started
             </button>
-          </Link>
+          </Link> */}
         </div>
         <div class="circle-decor top-left"></div>
         <div class="circle-decor bottom-right"></div>
@@ -873,7 +873,7 @@ const Pricing2 = () => {
           Add PathConnect Pro to your subscription for and unlock these advanced
           features:
         </p>
-        <div className="yellow-conent">
+        {/* <div className="yellow-conent">
           <button
             style={{ border: "none" }}
             className="yellow-div"
@@ -907,7 +907,7 @@ const Pricing2 = () => {
           >
             $129/month
           </button>
-        </div>
+        </div> */}
         <div className="ai-card-wrap">
           <div className="ai-card">
             <img src="ai1.svg" />
