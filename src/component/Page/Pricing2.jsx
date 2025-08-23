@@ -3,7 +3,7 @@ import Footer from "../Footer";
 import Header from "../Header";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Modal, Button, CloseButton } from "react-bootstrap";
 import PricingTab from "./PricingTab";
 
@@ -120,6 +120,17 @@ const Pricing2 = () => {
   const [activeTab, setActiveTab] = useState("Reviews");
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [showPricingTab, setShowPricingTab] = useState(false);
+
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [hash]);
 
   useEffect(() => {
     if (selectedPlan?.planId?.startsWith("qrsynch")) {
@@ -307,6 +318,7 @@ const Pricing2 = () => {
               //     </div>
               //   </div>
               // </div>
+              <section id="plans">
               <div className="choose-plan pricing-high">
                 <h3>QR Synch Subscription Plans</h3>
                 <div className="pricing-container plans">
@@ -381,6 +393,7 @@ const Pricing2 = () => {
                   </div>
                 </div>
               </div>
+              </section>
             ) : (
               <PricingTab data={selectedPlan} />
             )}

@@ -1,0 +1,228 @@
+.ps-split { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: center; padding: 32px 16px; max-width: 1200px; margin: 0 auto; }
+@media (min-width: 980px) { .ps-split { grid-template-columns: 1.05fr 1fr; gap: 36px; padding: 48px 24px; } }
+
+/* LEFT */
+.ps-left { display: grid; place-items: center; }
+
+/* Card */
+.ps-card { width: 100%; max-width: 640px; border-radius: 18px; color: #fff; background: linear-gradient(135deg, #052a23 0%, #0a3f34 55%, #0c5645 100%); box-shadow: 0 18px 50px rgba(0,0,0,0.25); padding: 28px 24px 32px; }
+@media (min-width: 640px) { .ps-card { padding: 40px 40px 44px; } }
+
+.ps-title { text-align: center; font-size: 30px; font-weight: 700; letter-spacing: 0.2px; color: #f6d126; }
+.ps-subtitle { text-align: center; margin-top: 6px; color: rgba(255,255,255,0.85); }
+
+/* Buttons */
+.ps-btn { width: 100%; border: 0; border-radius: 10px; padding: 12px 16px; font-weight: 600; cursor: pointer; transition: box-shadow .2s, transform .02s, background .2s, color .2s; text-align: center; display: inline-block; }
+.ps-btn:active { transform: translateY(1px); }
+.ps-btn-primary { background: #f6d126; color: #0b3b32; box-shadow: 0 4px 12px rgba(246,209,38,.35); }
+.ps-btn-primary:hover { box-shadow: 0 6px 16px rgba(246,209,38,.45); }
+
+.ps-btn-google { background: #fff; color: #123c33; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 2px 10px rgba(0,0,0,.15); }
+.ps-btn-google:hover { box-shadow: 0 4px 18px rgba(0,0,0,.2); }
+.ps-google-dot { width: 16px; height: 16px; border-radius: 50%; background: #4285f4; display: inline-block; }
+
+.ps-btn-outline { background: transparent; color: #0c4b3e; border: 2px solid #0c4b3e; width: auto; padding: 10px 14px; border-radius: 10px; }
+.ps-btn-outline:hover { background: #0c4b3e; color: #fff; }
+.ps-btn-soft { background: rgba(12,75,62,.1); color: #0c4b3e; width: auto; padding: 10px 14px; border-radius: 10px; }
+.ps-btn-soft:hover { background: rgba(12,75,62,.18); }
+
+/* Divider */
+.ps-divider { display: flex; align-items: center; gap: 12px; margin: 22px 0; }
+.ps-divider::before, .ps-divider::after { content: ""; height: 1px; flex: 1; background: rgba(255,255,255,.18); }
+.ps-divider span { font-size: 11px; letter-spacing: 0.22em; color: rgba(255,255,255,.9); }
+
+/* Form */
+.ps-form { display: grid; gap: 14px; }
+.ps-label { display: block; font-size: 13px; color: rgba(255,255,255,.9); }
+.ps-label > .ps-input { margin-top: 6px; }
+
+.ps-input { width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,.14); background: rgba(3, 48, 40, .45); color: #fff; outline: none; transition: border-color .2s, box-shadow .2s; }
+.ps-input::placeholder { color: rgba(225, 240, 235, .7); }
+.ps-input:focus { border-color: rgba(246,209,38,.7); box-shadow: 0 0 0 3px rgba(246,209,38,.25); }
+
+/* Checkbox */
+.ps-check { display: grid; grid-template-columns: 18px 1fr; align-items: start; gap: 10px; font-size: 13px; color: rgba(255,255,255,.9); margin-top: 2px; }
+.ps-check a { color: #f6d126; text-decoration: underline; text-underline-offset: 2px; }
+
+/* Error */
+.ps-error { margin: 6px 0 2px; background: rgba(246,209,38,.12); border: 1px solid rgba(246,209,38,.45); color: #ffeaa7; padding: 10px 12px; border-radius: 8px; font-size: 13px; }
+
+/* RIGHT */
+.ps-right { display: grid; place-items: center; }
+.ps-right-card { width: 100%; max-width: 640px; background: #fff; border-radius: 18px; padding: 28px 24px 30px; box-shadow: 0 18px 50px rgba(0,0,0,.08); border: 1px solid rgba(0,0,0,.06); }
+.ps-right-title { margin-top: 10px; font-size: 28px; line-height: 1.2; color: #0f2f28; font-weight: 800; }
+.ps-right-sub { margin-top: 8px; color: #29463f; }
+.ps-right-list { margin: 16px 0 18px; padding: 0; list-style: none; display: grid; gap: 10px; }
+.ps-right-list li { display: flex; align-items: center; gap: 10px; color: #0f2f28; }
+.ps-right-list .dot { width: 8px; height: 8px; border-radius: 50%; background: #0c4b3e; flex: none; }
+
+.ps-right-row { display: grid; grid-template-columns: 140px 1fr; gap: 16px; align-items: center; }
+.ps-qr-box { border: 1px solid rgba(0,0,0,.08); border-radius: 16px; padding: 10px; }
+.ps-qr-grid { width: 120px; height: 120px; display: grid; grid-template-columns: repeat(10, 1fr); grid-template-rows: repeat(10, 1fr); gap: 2px; }
+.ps-qr-grid .b { background: #0c0c0c; }
+.ps-qr-grid .w { background: #fff; border: 1px solid #eee; }
+
+.ps-link-card { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: center; border: 1px solid rgba(0,0,0,.08); border-radius: 12px; padding: 10px 12px; }
+.ps-link-icon { width: 24px; height: 24px; border-radius: 6px; background: linear-gradient(135deg,#0b4d3e,#14a07e); }
+.ps-link-title { font-weight: 600; color: #0f2f28; }
+.ps-link-sub { color: #55736a; font-size: 12px; }
+
+.ps-right-cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+
+/* Right panel header */
+.ps-right-card { position: relative; }
+
+.ps-right-head{
+  /* display:flex; */
+  /* align-items:center; */
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:12px;
+}
+
+.ps-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+}
+.ps-brand img{ height:28px; width:auto; display:block; }
+.ps-brand-text{ color:#2d5c3b; font-weight:700; letter-spacing:.2px; }
+
+.ps-right-tagline{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  font-weight:600;
+  color:#0e2f22;
+}
+
+.ps-chip{
+  background:#eaf5ef;
+  color:#2d5c3b;
+  border:1px solid rgba(45,92,59,.12);
+  border-radius:9999px;
+  padding:4px 10px;
+  font-weight:700;
+  font-size:15px;
+}
+
+.ps-powered{ color:#6b7280; font-weight:400; }
+
+.ps-free-badge{
+  background:#f6d84e;
+  color:#1c1c1c;
+  border-radius:9999px;
+  padding:4px 10px;
+  font-weight:700;
+  font-size:15px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.04) inset;
+}
+
+.ps-qr-icon{ margin-left:2px; opacity:.9; }
+
+/* Small screens: stack brand + tagline */
+@media (max-width: 768px){
+  .ps-right-head{ flex-direction:column; align-items:flex-start; gap:10px; }
+}
+
+.ps-inline-logo {
+    height: 27px;
+    width: auto;
+    display: inline-block;
+    margin-top: -1px;
+  }
+  
+  /* Tighten tagline spacing & color */
+  .ps-right-tagline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-weight: 600;
+    color: #0f2f28;
+  }
+
+/* Card header */
+.ps-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.ps-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,.10);
+  color: #f6d126;
+}
+.ps-title-group { flex: 1; }
+/* You already have .ps-title; I used .ps-sub — add an alias */
+.ps-sub { color: rgba(255,255,255,.85); margin-top: 6px; }
+
+/* OAuth strip + 'or' separator (to match your divider vibe) */
+.ps-oauth { display: grid; gap: 12px; margin: 8px 0 18px; }
+.ps-or {
+  position: relative;
+  text-align: center;
+  margin: 6px 0 2px;
+  font-size: 11px;
+  letter-spacing: .22em;
+  color: rgba(255,255,255,.9);
+}
+.ps-or::before,
+.ps-or::after {
+  content: "";
+  position: relative;
+  top: -0.4em;
+  display: inline-block;
+  height: 1px;
+  width: 36%;
+  background: rgba(255,255,255,.18);
+}
+.ps-or::before { margin-right: 10px; }
+.ps-or::after  { margin-left: 10px; }
+
+/* Two-column row for name inputs */
+.ps-row { display: flex; gap: 16px; }
+@media (max-width: 560px) {
+  .ps-row { flex-direction: column; gap: 14px; }
+}
+
+/* Small helper under password fields */
+.ps-help {
+  font-size: 12px;
+  color: rgba(255,255,255,.8);
+  margin: 2px 0;
+}
+
+/* Footer under the card */
+.ps-footer { margin-top: 12px; text-align: center; color: rgba(255,255,255,.85); }
+.ps-footer a { color: #f6d126; text-decoration: underline; text-underline-offset: 2px; }
+
+/* Pills row + variants on the right panel hero */
+.ps-pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 9999px;
+  background: #eaf5ef;
+  color: #2d5c3b;
+  border: 1px solid rgba(45,92,59,.15);
+  font-weight: 700;
+  font-size: 12px;
+}
+.pill-brand {
+  background: #0c4b3e;
+  color: #fff;
+  border-color: #0c4b3e;
+}
+.pill-free {
+  background: #f6d126;
+  color: #0b3b32;
+  border-color: rgba(246,209,38,.6);
+}

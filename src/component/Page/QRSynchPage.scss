@@ -1,0 +1,770 @@
+/* Define custom color variables */
+$primary-green: #1E3932; // Dark green for background and main text
+$light-green: #E0F2E9; // Light green for main content card
+$accent-yellow: #FFE816; // Bright yellow for buttons and highlights
+$text-gray: #636363; // For general text
+$border-gray: #e0e0e0; // For borders
+$white: #FFFFFF;
+$black: #000000;
+$red: #ef4444;
+$yellow-500: #eab308; // For yellow checkmark
+$green-500: #22c55e; // For green checkmark
+$red-400: #f87171; // For red cross
+
+/* General styles for the page container */
+.qrsynch-page-container {
+  min-height: 100vh;
+  background-color: $primary-green;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1rem; // py-10 px-4 equivalent
+}
+
+/* Main content card styling */
+.qrsynch-main-card {
+  max-width: 80rem; // max-w-5xl equivalent
+  width: 100%;
+  margin: 0 auto;
+  background-color: $light-green;
+  border-radius: 1.5rem; // rounded-3xl equivalent
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); // shadow-xl equivalent
+  padding: 2rem 3rem; // p-8 md:p-12 equivalent
+}
+
+/* Hero Section */
+.qrsynch-hero-section {
+  text-align: center;
+  padding: 2.5rem 1.5rem; // pt-10 pb-10 md:pt-16 md:pb-16 equivalent
+  position: relative;
+  z-index: 10;
+
+  .hero-heading {
+    font-size: 2.25rem; // text-4xl equivalent
+    line-height: 1.25; // leading-tight equivalent
+    letter-spacing: -0.025em; // tracking-tighter equivalent
+    margin-bottom: 1.5rem; // mb-6 equivalent
+    font-weight: 800; // font-extrabold equivalent
+    color: $primary-green;
+
+    span {
+      color: $primary-green;
+    }
+  }
+
+  .hero-subheading {
+    font-size: 1.125rem; // text-lg equivalent
+    line-height: 1.75rem; // text-xl equivalent
+    margin-bottom: 2.5rem; // mb-10 equivalent
+    color: $text-gray;
+    max-width: 48rem; // max-w-3xl equivalent
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Interactive Link/QR Box */
+.qrsynch-interactive-box {
+  max-width: 38rem; // max-w-2xl equivalent
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem; // mt-12 equivalent
+
+  .input-label {
+    margin-bottom: 0.75rem; // mb-3 equivalent
+    font-size: 1.125rem; // text-lg equivalent
+    font-weight: 600; // font-semibold equivalent
+    color: $primary-green;
+  }
+
+  .input-card {
+    background-color: $white;
+    border-radius: 0.75rem; // rounded-xl equivalent
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); // shadow-2xl equivalent
+    padding: 1rem; // p-4 equivalent
+    border: 1px solid $border-gray; // border border-gray-200 equivalent
+    backdrop-filter: blur(4px); // backdrop-blur-sm equivalent
+
+    .tab-buttons {
+      display: flex;
+      border-bottom: 1px solid $border-gray; // border-b border-gray-200 equivalent
+
+      button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem; // gap-2 equivalent
+        padding: 0.75rem 1.5rem; // py-3 px-6 equivalent
+        font-weight: 600; // font-semibold equivalent
+        font-size: 0.875rem; // text-sm equivalent
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        &.active {
+          color: $primary-green;
+          border-bottom: 2px solid $primary-green;
+        }
+
+        &.inactive {
+          color: #6b7280; // text-gray-500 equivalent
+        }
+      }
+    }
+
+    .input-content {
+      padding: 1rem; // p-4 md:p-6 equivalent
+
+      .input-group {
+        display: flex;
+        flex-direction: column; // flex-col equivalent
+        gap: 1rem; // gap-4 equivalent
+
+        @media (min-width: 768px) {
+          flex-direction: row; // md:flex-row equivalent
+        }
+
+        input {
+          flex-grow: 1; // flex-grow equivalent
+          padding: 0.75rem; // p-3 equivalent
+          border-radius: 0.5rem; // rounded-lg equivalent
+          border: 2px solid #d1d5db; // border-2 border-gray-300 equivalent
+          background-color: $white;
+          color: $primary-green;
+
+          &:focus {
+            ring: 2px solid $green-500; // focus:ring-2 focus:ring-green-500 equivalent
+            outline: none;
+            box-shadow: 0 0 0 2px $green-500; // transition-shadow equivalent
+          }
+        }
+
+        .action-button {
+          width: 100%; // w-full equivalent
+          @media (min-width: 768px) {
+            width: auto; // md:w-auto equivalent
+          }
+        }
+      }
+    }
+  }
+}
+
+/* What is QRsynch Section */
+.qrsynch-solution-section {
+  padding: 2.5rem 1.5rem; // py-10 px-6 equivalent
+
+  .content-grid {
+    max-width: 72rem; // max-w-6xl equivalent
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    gap: 3rem; // gap-12 equivalent
+    align-items: center;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr)); // md:grid-cols-2 equivalent
+    }
+
+    .text-content {
+      .section-heading {
+        font-size: 1.875rem; // text-3xl equivalent
+        line-height: 2.25rem; // md:text-4xl equivalent
+        font-weight: 700; // font-bold equivalent
+        letter-spacing: -0.025em; // tracking-tight equivalent
+        margin-bottom: 1rem; // mb-4 equivalent
+        color: $primary-green;
+      }
+
+      .section-paragraph {
+        font-size: 1.125rem; // text-lg equivalent
+        color: $text-gray;
+      }
+    }
+
+    .image-content {
+      img {
+        border-radius: 0.5rem; // rounded-lg equivalent
+        width: 100%; // Ensure image is responsive
+        height: auto;
+      }
+    }
+  }
+}
+
+/* How It Works Section */
+.qrsynch-how-it-works-section {
+  padding: 2.5rem 1.5rem; // py-10 px-6 equivalent
+  background-color: $light-green;
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem; // mb-16 equivalent
+
+    .section-title {
+      font-size: 1.875rem; // text-3xl equivalent
+      line-height: 2.25rem; // md:text-4xl equivalent
+      font-weight: 700; // font-bold equivalent
+      letter-spacing: -0.025em; // tracking-tight equivalent
+      color: $primary-green;
+    }
+
+    .section-description {
+      font-size: 1.125rem; // text-lg equivalent
+      color: $text-gray;
+      margin-top: 1rem; // mt-4 equivalent
+      max-width: 48rem; // max-w-3xl equivalent
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .steps-grid {
+    display: grid;
+    gap: 2.5rem; // gap-10 equivalent
+    text-align: center;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr)); // md:grid-cols-3 equivalent
+    }
+
+    .step-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem; // p-6 equivalent
+      border-radius: 0.75rem; // rounded-xl equivalent
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); // shadow-lg equivalent
+      background-color: $accent-yellow;
+      color: $primary-green;
+
+      .step-circle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 6rem; // w-24 equivalent
+        height: 6rem; // h-24 equivalent
+        border-radius: 9999px; // rounded-full equivalent
+        background-color: $white;
+        margin-bottom: 1.5rem; // mb-6 equivalent
+        border: 4px solid #bbf7d0; // border-4 border-green-200 equivalent
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); // shadow-lg equivalent
+
+        span {
+          font-size: 2.25rem; // text-4xl equivalent
+          font-weight: 700; // font-bold equivalent
+          color: $primary-green;
+        }
+      }
+
+      .step-title {
+        font-size: 1.25rem; // text-xl equivalent
+        font-weight: 600; // font-semibold equivalent
+        margin-bottom: 0.5rem; // mb-2 equivalent
+      }
+
+      .step-description {
+        color: #4b5563; // text-gray-700 equivalent
+      }
+    }
+  }
+}
+
+/* Features Section */
+.qrsynch-features-section {
+  padding: 2.5rem 1.5rem; // py-10 px-6 equivalent
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem; // mb-16 equivalent
+
+    .section-title {
+      font-size: 1.875rem; // text-3xl equivalent
+      line-height: 2.25rem; // md:text-4xl equivalent
+      font-weight: 700; // font-bold equivalent
+      letter-spacing: -0.025em; // tracking-tight equivalent
+      color: $primary-green;
+    }
+
+    .section-description {
+      font-size: 1.125rem; // text-lg equivalent
+      color: $text-gray;
+      margin-top: 1rem; // mt-4 equivalent
+      max-width: 48rem; // max-w-3xl equivalent
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .features-grid {
+    display: grid;
+    gap: 2rem; // gap-8 equivalent
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr)); // md:grid-cols-2 equivalent
+    }
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr)); // lg:grid-cols-3 equivalent
+    }
+
+    .feature-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 2rem; // p-8 equivalent
+      border-radius: 0.75rem; // rounded-xl equivalent
+      background-color: $white;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); // shadow-sm equivalent
+      transition: all 0.3s ease-in-out; // transition-all duration-300 equivalent
+      border: 1px solid $border-gray;
+
+      &:hover {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); // hover:shadow-xl equivalent
+        transform: translateY(-0.125rem); // hover:-translate-y-0.5 equivalent
+      }
+
+      .card-number {
+        position: absolute;
+        top: -1rem; // -top-4 equivalent
+        right: -1rem; // -right-4 equivalent
+        font-size: 6rem; // text-8xl equivalent
+        font-weight: 800; // font-extrabold equivalent
+        color: rgba(229, 231, 235, 0.5); // text-gray-200/50 equivalent
+        z-index: -10; // -z-10 equivalent
+      }
+
+      .icon-wrapper {
+        padding: 0.75rem; // p-3 equivalent
+        background-color: #bbf7d0; // bg-[#D4E9E2] equivalent
+        border-radius: 0.5rem; // rounded-lg equivalent
+        margin-bottom: 1rem; // mb-4 equivalent
+      }
+
+      .feature-title {
+        font-size: 1.25rem; // text-xl equivalent
+        font-weight: 600; // font-semibold equivalent
+        margin-bottom: 0.5rem; // mb-2 equivalent
+        z-index: 10;
+        color: $primary-green;
+      }
+
+      .feature-description {
+        color: $text-gray;
+        flex-grow: 1; // flex-grow equivalent
+        z-index: 10;
+      }
+    }
+  }
+}
+
+/* Comparison Section */
+.qrsynch-comparison-section {
+  padding: 2.5rem 1.5rem; // py-10 px-6 equivalent
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem; // mb-16 equivalent
+
+    .section-title {
+      font-size: 1.875rem; // text-3xl equivalent
+      line-height: 2.25rem; // md:text-4xl equivalent
+      font-weight: 700; // font-bold equivalent
+      letter-spacing: -0.025em; // tracking-tight equivalent
+      color: $primary-green;
+    }
+
+    .section-description {
+      font-size: 1.125rem; // text-lg equivalent
+      color: $text-gray;
+      margin-top: 1rem; // mt-4 equivalent
+      max-width: 48rem; // max-w-3xl equivalent
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .comparison-table {
+    max-width: 64rem; // max-w-4xl equivalent
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $white;
+    border-radius: 0.75rem; // rounded-xl equivalent
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); // shadow-2xl equivalent
+    border: 1px solid $border-gray; // border border-gray-200 equivalent
+    overflow: hidden;
+
+    .table-header {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr)); // grid-cols-3 equivalent
+      text-align: left;
+      font-weight: 600; // font-semibold equivalent
+      background-color: #f9fafb; // bg-gray-50 equivalent
+      color: $primary-green;
+
+      div {
+        padding: 1rem; // p-4 equivalent
+      }
+    }
+
+    .table-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr)); // grid-cols-3 equivalent
+      text-align: left;
+
+      div {
+        padding: 1rem; // p-4 equivalent
+        border-top: 1px solid $border-gray; // border-t border-gray-200 equivalent
+        font-size: 0.875rem; // text-sm equivalent
+
+        @media (min-width: 768px) {
+          font-size: 1rem; // md:text-base equivalent
+        }
+
+        &.center-text {
+          text-align: center;
+        }
+
+        svg {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        span {
+          color: $text-gray;
+        }
+      }
+    }
+  }
+}
+
+/* Pricing Section */
+.qrsynch-pricing-section {
+  padding: 2.5rem 1.5rem; // py-10 px-6 equivalent
+  background-color: $light-green;
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem; // mb-16 equivalent
+
+    .section-title {
+      font-size: 1.875rem; // text-3xl equivalent
+      line-height: 2.25rem; // md:text-4xl equivalent
+      font-weight: 700; // font-bold equivalent
+      letter-spacing: -0.025em; // tracking-tight equivalent
+      color: $primary-green;
+    }
+
+    .section-description {
+      font-size: 1.125rem; // text-lg equivalent
+      color: $text-gray;
+      margin-top: 1rem; // mt-4 equivalent
+      max-width: 48rem; // max-w-3xl equivalent
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .pricing-grid {
+    display: grid;
+    gap: 2rem; // gap-8 equivalent
+    align-items: flex-start;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr)); // md:grid-cols-2 equivalent
+    }
+    @media (min-width: 1280px) {
+      grid-template-columns: repeat(4, minmax(0, 1fr)); // xl:grid-cols-4 equivalent
+    }
+
+    .pricing-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%; // h-full equivalent
+      padding: 2rem; // p-8 equivalent
+      border-radius: 0.75rem; // rounded-xl equivalent
+      border: 1px solid #d1d5db; // border border-gray-300 equivalent
+      background-color: rgba(255, 255, 255, 0.7); // bg-white/70 equivalent
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); // shadow-lg equivalent
+      position: relative;
+
+      &.popular {
+        border-color: $accent-yellow; // border-[#1E3932] equivalent
+        transform: scale(1.05); // scale-105 equivalent
+        background-color: $white;
+      }
+
+      .popular-badge {
+        position: absolute;
+        top: 0;
+        transform: translateY(-50%);
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: $accent-yellow;
+        color: $primary-green;
+        font-size: 0.75rem; // text-xs equivalent
+        font-weight: 700; // font-bold equivalent
+        padding: 0.25rem 0.75rem; // px-3 py-1 equivalent
+        border-radius: 9999px; // rounded-full equivalent
+      }
+
+      .plan-name {
+        font-size: 1.5rem; // text-2xl equivalent
+        font-weight: 700; // font-bold equivalent
+        margin-bottom: 0.5rem; // mb-2 equivalent
+        color: $primary-green;
+      }
+
+      .plan-description {
+        color: #4b5563; // text-gray-600 equivalent
+        margin-bottom: 1rem; // mb-4 equivalent
+        height: 3rem; // h-12 equivalent
+      }
+
+      .price-display {
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 1.5rem; // mb-6 equivalent
+
+        .price-value {
+          font-size: 3rem; // text-5xl equivalent
+          font-weight: 800; // font-extrabold equivalent
+          letter-spacing: -0.025em; // tracking-tight equivalent
+          color: $primary-green;
+        }
+
+        .price-period {
+          font-size: 1.125rem; // text-lg equivalent
+          color: #4b5563; // text-gray-600 equivalent
+          margin-left: 0.25rem; // ml-1 equivalent
+        }
+      }
+
+      .feature-list {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 2rem; // mb-8 equivalent
+        flex-grow: 1;
+
+        li {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.75rem; // gap-3 equivalent
+          margin-bottom: 1rem; // space-y-4 equivalent
+
+          svg {
+            width: 1.25rem; // w-5 h-5 equivalent
+            color: $green-500;
+            flex-shrink: 0; // flex-shrink-0 equivalent
+            margin-top: 0.25rem; // mt-1 equivalent
+          }
+
+          span {
+            color: $primary-green;
+          }
+        }
+      }
+
+      .cta-button {
+        width: 100%; // w-full equivalent
+        margin-top: auto; // mt-auto equivalent
+      }
+    }
+  }
+}
+
+/* FAQ Section */
+.qrsynch-faq-section {
+  padding: 2.5rem 1.5rem; // py-10 px-6 equivalent
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem; // mb-12 equivalent
+
+    .section-title {
+      font-size: 1.875rem; // text-3xl equivalent
+      line-height: 2.25rem; // md:text-4xl equivalent
+      font-weight: 700; // font-bold equivalent
+      letter-spacing: -0.025em; // tracking-tight equivalent
+      color: $primary-green;
+    }
+  }
+
+  .faq-list {
+    max-width: 48rem; // max-w-3xl equivalent
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $white;
+    border-radius: 0.75rem; // rounded-xl equivalent
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); // shadow-lg equivalent
+    padding: 1.5rem; // p-6 equivalent
+    border: 1px solid $border-gray; // border border-gray-200 equivalent
+
+    .faq-item {
+      border-bottom: 1px solid $border-gray; // border-b border-gray-200 equivalent
+      padding-top: 1rem; // py-4 equivalent
+      padding-bottom: 1rem; // py-4 equivalent
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      button {
+        width: 100%; // w-full equivalent
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        h3 {
+          font-size: 1.125rem; // text-lg equivalent
+          font-weight: 500; // font-medium equivalent
+          color: $primary-green;
+        }
+
+        svg {
+          width: 1.5rem; // w-6 h-6 equivalent
+          height: 1.5rem;
+          transform: rotate(0deg);
+          transition: transform 0.3s ease;
+
+          &.open {
+            transform: rotate(180deg);
+          }
+        }
+      }
+
+      .faq-answer {
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+
+        &.open {
+          max-height: 24rem; // max-h-96 equivalent
+          margin-top: 1rem; // mt-4 equivalent
+        }
+
+        &.closed {
+          max-height: 0;
+        }
+
+        p {
+          color: #4b5563; // text-gray-600 equivalent
+        }
+      }
+    }
+  }
+}
+
+/* CTA Section */
+.qrsynch-cta-section {
+  padding: 2.5rem 1.5rem; // py-10 px-6 equivalent
+  text-align: center;
+
+  .section-content {
+    position: relative;
+    z-index: 10;
+    max-width: 48rem; // max-w-3xl equivalent
+    margin-left: auto;
+    margin-right: auto;
+
+    h2 {
+      font-size: 1.875rem; // text-3xl equivalent
+      line-height: 2.25rem; // md:text-4xl equivalent
+      font-weight: 700; // font-bold equivalent
+      margin-bottom: 1rem; // mb-4 equivalent
+      color: $primary-green;
+    }
+
+    p {
+      font-size: 1.125rem; // text-lg equivalent
+      margin-bottom: 2rem; // mb-8 equivalent
+      color: $text-gray;
+    }
+
+    .cta-button {
+      width: 100%; // w-full equivalent
+      @media (min-width: 768px) {
+        width: auto; // md:w-auto equivalent
+      }
+    }
+  }
+}
+
+/* Enterprise band (Bitly-style) */
+.enterprise-band {
+  margin-top: 32px;
+  background: #0f2f28;           /* deep PathSynch green */
+  color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.08);
+  padding: 28px 20px;
+}
+
+.enterprise-inner {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 992px) {
+  .enterprise-band { padding: 32px 28px; }
+  .enterprise-inner {
+    grid-template-columns: 1.1fr 0.9fr 1fr 1fr; /* intro + three columns */
+    align-items: start;
+    gap: 24px;
+  }
+}
+
+.enterprise-title {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 8px;
+  letter-spacing: .2px;
+}
+
+.enterprise-sub { color: #cfe9df; margin: 0 0 14px; }
+
+.enterprise-heading {
+  font-size: 16px;
+  font-weight: 700;
+  color: #d9f1e7;
+  margin: 0 0 8px;
+}
+
+.enterprise-copy { color: #cfe9df; margin: 0; }
+
+.enterprise-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.enterprise-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.li-icon {
+  width: 18px;
+  height: 18px;
+  color: #86e0b8; /* minty check */
+  flex: none;
+  margin-top: 2px;
+}
+
+/* CTA matches your yellow brand button */
+.enterprise-cta {
+  background: #f6d126 !important;
+  color: #0b3b32 !important;
+  border: none !important;
+  font-weight: 700;
+}
+.enterprise-cta:hover { filter: brightness(1.05); }

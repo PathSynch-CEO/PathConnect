@@ -6,7 +6,10 @@ import { useLocation } from 'react-router-dom';
 
 function EmailConfirmation() {
   const location = useLocation();
-  const email = location.state?.email || '';
+  const stateEmail = location.state?.email || '';
+  const qpEmail = new URLSearchParams(location.search).get('email') || '';
+  const email = stateEmail || qpEmail;
+
   return (
     <div>
         <Header/>

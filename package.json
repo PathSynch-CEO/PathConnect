@@ -11,6 +11,7 @@
     "classnames": "^2.5.1",
     "cra-template": "1.2.0",
     "formik": "^2.4.6",
+    "google-auth-library": "^10.1.0",
     "jquery": "^3.7.1",
     "lucide-react": "^0.479.0",
     "owl.carousel": "^2.3.4",

@@ -15,6 +15,7 @@ const VerifyAccount = () => {
     if (!hasVerified) {
       const verifyToken = async () => {
         try {
+          // const response = await fetch(`http://localhost:8181/v2/auth/register/merchant/verify/${id}`, {
           const response = await fetch(`https://api.pathsynch.com/v2/auth/register/merchant/verify/${id}`, {
             method: 'POST',
             headers: {

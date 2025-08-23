@@ -1,4 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React from "react";
+import { useEffect } from "react";
 import Home from "./component/Page/Home";
 import About from "./component/Page/About";
 import ProductPage from "./component/Page/ProductPage";
@@ -12,6 +14,7 @@ import Things from "./component/Page/Things";
 import Auto from "./component/Page/Auto";
 import Travel from "./component/Page/Travel";
 import Pricing from "./component/Page/Pricing";
+import FreeSignupPage from "./component/Page/Signup/FreeSignUp";
 import Pricing2 from "./component/Page/Pricing2";
 import Blog from "./component/Page/Blog";
 import BlogDetail from "./component/Page/BlogDetail";
@@ -43,6 +46,7 @@ import RequestDemo from "./component/Page/RequestDemo";
 import AuthScreen from "./component/Page/AuthScreen";
 import PathParter from "./component/Page/PathParter";
 import PathConnect from "./component/Page/PathConnect";
+import QRSynchPage from "./component/Page/QRSynchPage";
 import CommerceSync from "./component/Page/CommerceSync";
 import PathManager from "./component/Page/PathManager";
 import EnterPrise from "./component/Page/EnterPrise";
@@ -51,6 +55,19 @@ window.$ = window.jQuery = $;
 
 
 function App(){
+
+  React.useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const err = params.get("error");
+    if (err) {
+      // map & show toast/message here
+      console.error("Login error:", err);
+      params.delete("error");
+      window.history.replaceState({}, "", window.location.pathname);
+    }
+  }, []);
+  
+
   return (
     <BrowserRouter>
       <ScrollToTop />
@@ -75,6 +92,7 @@ function App(){
       <Route path="/google" element={<GoogleManagement/>}></Route>
       <Route path="/login" element={<LoginScreen/>}></Route>
       <Route path="/signup" element={<SignUp/>}></Route>
+      <Route path="/free-signup" element={<FreeSignupPage/>}></Route>
       <Route path="/merchantSignup" element={<Signup2/>}></Route>
       <Route path="/email-confirmation" element={<EmailConfirmation/>}></Route>
       <Route path="/welcome-signup" element={<WelcomeSignup/>}></Route>
@@ -96,6 +114,7 @@ function App(){
       <Route path="/login-page" element={<AuthScreen/>}></Route>
       <Route path="/path-partner" element={<PathParter/>}></Route>
       <Route path="/pathconnect-page" element={<PathConnect/>}></Route>
+      <Route path="/qrsynch-page" element={<QRSynchPage/>}></Route>
       <Route path="/pathcommercesync" element={<CommerceSync/>}></Route>
       <Route path="/pathmanager" element={<PathManager/>}></Route>
       <Route path="/enterprise" element={<EnterPrise/>}></Route>

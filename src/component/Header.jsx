@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { QrCode } from 'lucide-react';
+
 import { Link, NavLink, useLocation } from 'react-router-dom';
 
 const Header = () => {
@@ -71,6 +73,21 @@ const Header = () => {
                             <div className="feature-text">
                               <h4>PathConnect</h4>
                               <p>Reviews & Custom Feedback</p>
+                            </div>
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink 
+                            to="/qrsynch-page" 
+                            className={({ isActive }) => isActive ? 'feature-item active' : 'feature-item'}
+                            onClick={() => setIsPlatformOpen(false)}
+                          >
+                            <div className="feature-icon">
+                            <QrCode color="#2d5c3b" size={40} />
+                            </div>
+                            <div className="feature-text">
+                              <h4>QRSynch</h4>
+                              <p>Custom built ShortLinks and QR Codes</p>
                             </div>
                           </NavLink>
                         </li>

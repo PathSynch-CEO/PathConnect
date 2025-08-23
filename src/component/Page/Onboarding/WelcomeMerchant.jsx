@@ -36,8 +36,9 @@ const WelcomeMerchant = () => {
     const fetchMerchantDetails = async () => {
       try {
         const merchantId = localStorage.getItem('merchantId') || 'default-id';
-        
+        //console.log("merchantId ",merchantId);
         const response = await fetch('https://api.pathsynch.com/v2/mcnt/onboard-details/', {
+        // const response = await fetch('http://localhost:8181/v2/mcnt/onboard-details/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -47,7 +48,6 @@ const WelcomeMerchant = () => {
             id: merchantId
           })
         });
-
         if (!response.ok) {
           throw new Error('Failed to fetch merchant details');
         }
@@ -57,7 +57,7 @@ const WelcomeMerchant = () => {
         setContactName(`${data.data.details.name.fname} ${data.data.details.name.lname}`);
         setContactPhone(data.data.details.landline);
       } catch (error) {
-        console.error('Error fetching merchant details:', error);
+        console.error('Error fetching merchant details:',error);
       } finally {
         setLoading(false);
       }

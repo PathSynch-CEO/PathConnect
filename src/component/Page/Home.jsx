@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Footer from '../Footer';
 import Header from '../Header';
+import TrialShortlinkFeature from './TrialShortlinkFeature';
 
 function Home() {
   return (
@@ -46,6 +47,7 @@ HTML Structure for Hero Section */}
               }} style={{cursor:"pointer"}}>CommerceSynch</div>
             </div>
           </div>
+          <TrialShortlinkFeature />
         </div>
         <div class="hero-image">
           <img src="hero_img.svg" alt="Team Collaboration" />
