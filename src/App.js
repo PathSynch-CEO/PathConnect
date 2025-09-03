@@ -47,6 +47,7 @@ import AuthScreen from "./component/Page/AuthScreen";
 import PathParter from "./component/Page/PathParter";
 import PathConnect from "./component/Page/PathConnect";
 import QRSynchPage from "./component/Page/QRSynchPage";
+import SynchMateApp from "./component/Page/SynchMatePage";
 import CommerceSync from "./component/Page/CommerceSync";
 import PathManager from "./component/Page/PathManager";
 import EnterPrise from "./component/Page/EnterPrise";
@@ -115,6 +116,7 @@ function App(){
       <Route path="/path-partner" element={<PathParter/>}></Route>
       <Route path="/pathconnect-page" element={<PathConnect/>}></Route>
       <Route path="/qrsynch-page" element={<QRSynchPage/>}></Route>
+      <Route path="/synchmate-app" element={<SynchMateApp/>}></Route>
       <Route path="/pathcommercesync" element={<CommerceSync/>}></Route>
       <Route path="/pathmanager" element={<PathManager/>}></Route>
       <Route path="/enterprise" element={<EnterPrise/>}></Route>

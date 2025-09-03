@@ -55,8 +55,8 @@ const LoginScreen = () => {
       const result = await response.json();
       //console.log("resp :",result.data);
       if (response.ok) {
-        window.location.href = `https://pathmanager.pathsynch.com?merchantcode=${result?.data?.mcnt_code}&token=${result?.data?.accesstoken}`;
-        // window.location.href = `http://localhost:5173?merchantcode=${result?.data?.mcnt_code}&token=${result?.data?.accesstoken}`;
+        //window.location.href = `https://pathmanager.pathsynch.com?merchantcode=${result?.data?.mcnt_code}&token=${result?.data?.accesstoken}`;
+        window.location.href = `http://localhost:5173?merchantcode=${result?.data?.mcnt_code}&token=${result?.data?.accesstoken}`;
       } else {
         alert("Login failed: " + (result.message || "Invalid credentials"));
       }

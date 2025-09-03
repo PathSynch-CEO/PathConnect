@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { QrCode } from 'lucide-react';
+import { QrCode, Bot } from 'lucide-react';
 
 import { Link, NavLink, useLocation } from 'react-router-dom';
 
@@ -118,6 +118,21 @@ const Header = () => {
                             <div className="feature-text">
                               <h4>PathManager</h4>
                               <p>Business Intelligence & Actionable Items</p>
+                            </div>
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink 
+                            to="/synchmate-app" 
+                            className={({ isActive }) => isActive ? 'feature-item active' : 'feature-item'}
+                            onClick={() => setIsPlatformOpen(false)}
+                          >
+                            <div className="feature-icon">
+                            <Bot color="#2d5c3b" size={40} />
+                            </div>
+                            <div className="feature-text">
+                              <h4>SynchMate</h4>
+                              <p>Custom AI-chat-assistant for your website</p>
                             </div>
                           </NavLink>
                         </li>
