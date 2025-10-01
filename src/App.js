@@ -33,6 +33,7 @@ import RefundPolicy from "./RefundPolicy";
 import ReferFriend from "./component/Page/ReferFriend";
 import Careers from "./component/Page/Careers";
 import PrivacyPolicy from "./component/Page/PrivacyPolicy";
+import AITermsOfUse from "./component/Page/AITermsOfUse";
 import TermsOfUse from "./component/Page/TermsOfUse";
 import AppDownload from "./component/Page/AppDownload";
 import AppDownload2 from "./component/Page/AppDownload2";
@@ -58,16 +59,29 @@ window.$ = window.jQuery = $;
 function App(){
 
   React.useEffect(() => {
+    // --- STEP 1: Handle URL parameters FIRST ---
     const params = new URLSearchParams(window.location.search);
     const err = params.get("error");
     if (err) {
-      // map & show toast/message here
       console.error("Login error:", err);
-      params.delete("error");
+      // Clean the URL before doing anything else
       window.history.replaceState({}, "", window.location.pathname);
     }
+
+    // // --- STEP 2: Now that the URL is clean, load the script ---
+    // const s = document.createElement("script");
+    // s.src = "http://localhost:4000/embed.js";
+    // s.async = true;
+    // s.setAttribute("data-key", "pk_live_test_123");
+    // s.setAttribute("data-api", "http://localhost:8080");
+    // document.body.appendChild(s);
+
+    // // Cleanup function to remove the script when the component unmounts
+    // return () => {
+    //   s.remove();
+    // };
   }, []);
-  
+
 
   return (
     <BrowserRouter>
@@ -105,6 +119,7 @@ function App(){
       <Route path="/careers" element={<Careers/>}></Route>
       <Route path="/privacy-policy" element={<PrivacyPolicy/>}></Route>
       <Route path="/terms-of-use" element={<TermsOfUse/>}></Route>
+      <Route path="/ai-terms-of-use" element={<AITermsOfUse/>}></Route>
       <Route path="/app-download" element={<AppDownload/>}></Route>
       <Route path="/app-download2" element={<AppDownload2/>}></Route>
       <Route path="/merchantSignup/onboarding" element={<Onboardingss/>}></Route>

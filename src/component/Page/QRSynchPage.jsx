@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../Header";
 import Footer from "../Footer";
 
@@ -291,6 +292,7 @@ const comparisonData = [
 const pricingTiers = [
   {
     name: "Free",
+    planId: "free",
     price: "$0",
     period: "/ month",
     description: "For Trial.",
@@ -307,6 +309,7 @@ const pricingTiers = [
   },
   {
     name: "Starter",
+    planId:"qrsynchstarter",
     price: "$14",
     period: "/ month",
     description: "For professionals and small teams.",
@@ -327,10 +330,11 @@ const pricingTiers = [
     ],
     cta: "Get Started",
     popular: false,
-    link: "https://pathsynch.com/pricing-page",
+    link: null,
   },
   {
     name: "Growth",
+    planId:"qrsynchgrowth",
     price: "$35",
     period: "/ month",
     description: "For growing businesses.",
@@ -353,10 +357,11 @@ const pricingTiers = [
     ],
     cta: "Choose Growth",
     popular: true,
-    link: "https://pathsynch.com/pricing-page",
+    link: null,
   },
   {
     name: "Power User",
+    planId:"qrsynchpoweruser",
     price: "$129",
     period: "/ month",
     description: "For agencies and power users.",
@@ -383,11 +388,12 @@ const pricingTiers = [
     ],
     cta: "Get Started",
     popular: false,
-    link: "https://pathsynch.com/pricing-page",
+    link: null,
   },
   {
     name: "Enterprise",
     price: "Contact Us",
+    planId:"enterprise",
     period: "",
     description: "Custom solutions for enterprise clients.",
     features: [
@@ -403,7 +409,7 @@ const pricingTiers = [
     ],
     cta: "Get a Qoute",
     popular: false,
-    link: "https://pathsynch.com/contactus",
+    link: "/contactus",
   },
 ];
 
@@ -451,10 +457,38 @@ const enterpriseTier = pricingTiers.find((t) => /enterprise/i.test(t.name));
 // --- Main App Component ---
 export default function QRSynchPage() {
   const [activeTab, setActiveTab] = useState("link");
+  const navigate = useNavigate();
 
-  const handleLinkButtonClick = (url) => {
-    window.location.href = url;
-  };
+    const handleLinkButtonClick = (tier) => {
+        // Enterprise still goes to Contact page
+        if (tier?.planId === "qrsynchenterprise") {
+          navigate("/contactus");
+          return;
+        }
+    
+        // Only route paid QRsynch plans (Starter/Growth/Power User) to /landing-page
+        // Match Pricing2: send { totalPrice, selectedPlanAmount, plan }
+        if (tier?.planId && /^qrsynch/.test(tier.planId)) {
+          // Extract numeric price even if it's a string like "$14"
+          const numeric = typeof tier.price === "string"
+            ? Number(tier.price.replace(/[^0-9.]/g, ""))
+            : tier.price;
+    
+          navigate("/landing-page", {
+            state: {
+              totalPrice: numeric,
+              selectedPlanAmount: numeric,
+              plan: tier.planId,
+            },
+          });
+          return;
+        }
+    
+        // Keep existing behavior for Free or any tiers with external links
+        if (tier?.link) {
+          window.location.href = tier.link;
+        }
+      };
 
   return (
     // Outer container for the dark green background
@@ -507,9 +541,10 @@ export default function QRSynchPage() {
                           size="lg"
                           className="action-button"
                           onClick={() =>
-                            handleLinkButtonClick(
-                              "https://pathsynch.com/pricing-page"
-                            )
+                            handleLinkButtonClick({
+                              planId: "free",
+                              link: "https://pathsynch.com/free-signup",
+                            })
                           }
                         >
                           Get your link
@@ -681,7 +716,7 @@ export default function QRSynchPage() {
                       <Button
                         size="lg"
                         className="cta-button"
-                        onClick={() => handleLinkButtonClick(tier.link)}
+                        onClick={() => handleLinkButtonClick(tier)}
                       >
                         {tier.cta}
                       </Button>
@@ -706,7 +741,7 @@ export default function QRSynchPage() {
                           size="lg"
                           className="enterprise-cta"
                           onClick={() =>
-                            handleLinkButtonClick(enterpriseTier.link)
+                            handleLinkButtonClick(enterpriseTier)
                           }
                         >
                           Get a Quote
@@ -789,7 +824,10 @@ export default function QRSynchPage() {
                   size="lg"
                   className="cta-button"
                   onClick={() =>
-                    handleLinkButtonClick("https://pathsynch.com/pricing-page")
+                    handleLinkButtonClick({
+                      planId: "free",
+                      link: "https://pathsynch.com/free-signup",
+                    })
                   }
                 >
                   Get Started Today
