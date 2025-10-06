@@ -1,0 +1,220 @@
+{
+    "lastUpdated": "Oct 1, 2025",
+    "sections": [
+      {
+        "title": "1. Introduction",
+        "paragraphs": [
+          "Welcome to PathSynch (“we,” “us,” “our”). We respect your privacy and are committed to protecting your personal data. This Privacy Policy describes how we collect, use, disclose, retain, and delete personal information about you when you use our website, platform, mobile apps, APIs, integrations, or related services (collectively, our “Services”).",
+          "This policy also addresses specific requirements for Google user data (if we integrate with Google, use OAuth, etc.) to comply with Google’s privacy requirements.",
+          "By using our Services, you agree to the terms in this policy. If you disagree, please do not use the Services."
+        ]
+      },
+      {
+        "title": "2. Scope and Applicability",
+        "paragraphs": [
+          "This policy applies to: individuals who register for or use our Services; visitors to our website(s); users who connect via third-party services (e.g. Google, Microsoft, etc.); and customers, prospects, and business contacts.",
+          "It does not apply to third party sites, services, or applications that we do not own or control (except as explicitly set out in this policy).",
+          "We operate globally. In certain jurisdictions, local data protection laws (e.g. GDPR, CCPA, etc.) may afford you additional rights, and we comply with applicable regional legal requirements."
+        ]
+      },
+      {
+        "title": "3. Information We Collect",
+        "subsections": [
+          {
+            "subtitle": "3.1 Personal Information (Identifiable Information)",
+            "bullets": [
+              "Account / Registration Data: name, email address, phone number, company, role, address, billing information.",
+              "Third-party Authentication Data: if you sign in via Google, Microsoft, or another identity provider, we may collect the data provided by those services (e.g. name, email, profile picture) and tokens.",
+              "Usage / Activity Data: logs, timestamps, IP addresses, device identifiers, browser, OS, API calls, feature usage, analytics events.",
+              "Integration / Connection Data: if you integrate PathSynch with other services (e.g. Google Sheets, CRM, AWS, etc.), we may process data from those connected accounts, subject to your permissions.",
+              "Transaction / Payment Data: when you purchase or subscribe, we may collect billing data (credit card token, billing address), invoice information, transaction history.",
+              "Communications Data: emails, chat transcripts, support requests, feedback, marketing preferences.",
+              "Derived / Aggregate Data: non-identifying data or anonymized data derived from usage (e.g. usage metrics, aggregated analytics).",
+              "We do not collect sensitive personal data (e.g. race, religion, health) unless you explicitly provide it and we disclose that use."
+            ]
+          },
+          {
+            "subtitle": "3.2 Automatically Collected / Log Data",
+            "bullets": [
+              "IP address, geolocation (rough level, e.g. city)",
+              "Browser / OS / device type",
+              "Referrer / pages visited / click paths / session events",
+              "Timestamps and duration of use",
+              "Cookies, local storage, or similar technologies",
+              "This information is used to maintain and improve our Services, security, debugging, and analytics."
+            ]
+          },
+          {
+            "subtitle": "3.3 Cookies and Similar Technologies",
+            "bullets": [
+              "Strictly necessary operations (session management, authentication)",
+              "Performance and analytics",
+              "Functionality and feature optimization",
+              "(With consent) Marketing, customization, and tracking",
+              "You may block or delete such cookies via your browser settings, though some features may not function correctly."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "4. How We Use Your Information",
+        "groups": [
+          {
+            "label": "To provide and maintain the Services",
+            "bullets": [
+              "Authentication, user management, access control",
+              "Execute API / integration workflows",
+              "Billing, subscriptions, invoicing",
+              "Customer support, onboarding"
+            ]
+          },
+          {
+            "label": "To improve, develop, update, and maintain features",
+            "bullets": [
+              "Analytics, usage trends, metrics",
+              "A/B testing, product optimization",
+              "Quality assurance, security monitoring"
+            ]
+          },
+          {
+            "label": "To communicate with you",
+            "bullets": [
+              "Transactional communications (confirmations, invoices)",
+              "System alerts, updates, feature announcements",
+              "Marketing (if you opt in)"
+            ]
+          },
+          {
+            "label": "To enforce policies and legal compliance",
+            "bullets": [
+              "Detecting, preventing, or responding to fraud, abuse, or security incidents",
+              "Complying with legal obligations, subpoenas, court orders"
+            ]
+          },
+          {
+            "label": "For legitimate business interests",
+            "bullets": [
+              "Improving user experience",
+              "Aggregated reporting",
+              "Customer support optimization"
+            ]
+          },
+          {
+            "label": "For future expansions (subject to user consent or notice)",
+            "bullets": [
+              "Integration with AI/ML modeling (on anonymized or aggregated data)",
+              "Licensing or partnership with other platforms",
+              "Additional analytics or data insights"
+            ]
+          }
+        ],
+        "footnote": "We will never sell Google user data or your personal data to third parties, except as expressly permitted or required by law."
+      },
+      {
+        "title": "5. Disclosure & Sharing",
+        "bullets": [
+          "Service Providers / Subprocessors: we may contract with providers (e.g. cloud hosting, analytics, email, payment processors, customer support tools) who process data on our behalf under confidentiality obligations.",
+          "Business Transfers: in the event of a merger, acquisition, or sale of assets, your personal data may be among the transferred assets; we will provide notice if a change in ownership occurs.",
+          "Legal and Safety Purposes: to comply with legal obligations, respond to lawful requests, enforce our Terms or policies, or protect rights, safety, or property.",
+          "Aggregated / Anonymized Data: we may share or publish de-identified data for business insights.",
+          "With Your Consent or Direction: when you explicitly request or authorize sharing (e.g., connecting to third-party apps you designate).",
+          "We will not share personal data for purposes outside those outlined above without your consent."
+        ]
+      },
+      {
+        "title": "6. Data Retention and Deletion",
+        "subsections": [
+          {
+            "subtitle": "6.1 Retention Periods",
+            "table": [
+              { "dataType": "Account profile data, login credentials", "duration": "As long as account is active + 1 year", "notes": "Or as needed for customer relationship management" },
+              { "dataType": "Usage logs, analytics data", "duration": "Typically up to 24 months (or longer if anonymized)", "notes": "We may archive or aggregate data beyond that period" },
+              { "dataType": "Transaction / billing / financial records", "duration": "7 years or as required by accounting/regulatory laws", "notes": "Whichever is longer" },
+              { "dataType": "Support communications, correspondence", "duration": "3 years after last interaction", "notes": "Unless legal/regulatory requirement demands longer" },
+              { "dataType": "Connected integration data (from third-party APIs)", "duration": "As long as connection is active + 1 year", "notes": "Subject to user control / disconnection requests" },
+              { "dataType": "Marketing / email opt-in records", "duration": "Until unsubscribe or 3 years of inactivity", "notes": "Whichever is earlier" },
+              { "dataType": "Deleted account backups / logs", "duration": "Destroyed or anonymized within 90 days", "notes": "Or as required by law" }
+            ],
+            "notes": ["These periods are approximate and may change."]
+          },
+          {
+            "subtitle": "6.2 Deletion / Erasure",
+            "bullets": [
+              "When a retention period expires or when a user requests deletion, we will permanently delete or anonymize personal data from our operational databases and backups (where feasible).",
+              "We remove or redact data from logs and audit trails within a reasonable timeframe.",
+              "Ensure that residual copies (e.g., backups) are destroyed or rendered unrecoverable.",
+              "Users may request deletion of their personal data at any time (subject to certain exceptions). Upon verification, we will delete account profile, usage data, connected data, anonymize remaining data, and notify the user (if desired) that deletion is complete.",
+              "We may retain minimal residual data solely to comply with legal obligations or to protect ourselves from potential claims."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "7. Your Rights & Controls",
+        "bullets": [
+          "Right to access your personal data",
+          "Right to correct / update",
+          "Right to delete / erase",
+          "Right to object / restrict processing",
+          "Right to portability",
+          "Right to withdraw consent",
+          "Right to opt-out of marketing"
+        ],
+        "subnote": "To exercise any rights, contact us at the address below. You may also manage cookie preferences via banner or settings, unsubscribe from marketing emails, or disconnect third-party integrations / revoke access tokens."
+      },
+      {
+        "title": "8. Security & Data Protection",
+        "bullets": [
+          "Encryption in transit (TLS/SSL)",
+          "Encryption at rest (where applicable)",
+          "Access controls, least-privilege principles",
+          "Regular security audits, vulnerability assessments",
+          "Monitoring, logging, intrusion detection",
+          "Incident response and breach notification protocols",
+          "In the event of a security breach involving your personal data, we will notify you and regulators as required by law, without undue delay."
+        ]
+      },
+      {
+        "title": "9. International Data Transfers",
+        "bullets": [
+          "We may transfer, store, or process data outside your home jurisdiction.",
+          "We use adequate safeguards (e.g., EU Standard Contractual Clauses, or applicable equivalents).",
+          "We only make transfers necessary to provide or maintain Services and provide transparent disclosures about such transfers."
+        ]
+      },
+      {
+        "title": "10. Children’s Privacy",
+        "paragraphs": [
+          "Our Services are not intended for children under the age of 13 (or higher as required by local law). We do not knowingly collect personal data from children. If we become aware we have inadvertently done so, we will promptly take steps to delete such data."
+        ]
+      },
+      {
+        "title": "11. Changes to This Privacy Policy",
+        "paragraphs": [
+          "We may update this policy from time to time. When we make material changes, we will notify you via email (if applicable) or by posting a notice in our platform. Your continued use of the Services after that constitutes acceptance."
+        ]
+      },
+      {
+        "title": "12. Contact Information",
+        "paragraphs": [
+          "PathSynch Labs, LLC",
+          "235 Mitchell Street SW",
+          "Atlanta, Georgia 30303",
+          "Email: privacy@pathsynch.com"
+        ]
+      },
+      {
+        "title": "13. Additional Provisions for Google Integration / OAuth / Google User Data",
+        "bullets": [
+          "We explicitly disclose what Google user data we collect (e.g., profile, email, contacts).",
+          "We explain how we use that Google data (e.g., to sync, fetch calendars, process analytics).",
+          "We disclose with whom we share or transfer that data.",
+          "We describe data protection measures for that data.",
+          "We do not sell Google user data or use it for targeting or advertising.",
+          "We include retention and deletion policies specific to Google user data (as above).",
+          "We host the privacy policy on a verified domain and prominently link it in the app / interface."
+        ]
+      }
+    ]
+  }
+  
