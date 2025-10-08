@@ -83,6 +83,13 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
+              <img className="barimg" src="instagram.svg" alt="PathSynch Logo" />
+            </a>
+            <a
+              href="https://www.facebook.com/pathsynch"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img className="barimg" src="fb.svg" alt="PathSynch Logo" />
             </a>
             <a
