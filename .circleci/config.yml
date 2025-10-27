@@ -1,91 +1,3 @@
-# version: 2.1
-
-# jobs:
-#   deploy-pathsynch-frontend:
-#     machine:
-#       resource_class: pathsynch-labs/pathsynch-aws-runner
-
-#     steps:
-#       - checkout
-
-#       - run:
-#           name: "Build React Frontend"
-#           command: |
-#             echo "🚀 Building PathSynch Frontend (PathConnect)"
-#             # Clean and prepare isolated workspace
-#             sudo rm -rf /opt/circleci-workspace/pathsynch-frontend
-#             sudo mkdir -p /opt/circleci-workspace/pathsynch-frontend
-#             sudo chown -R circleci:circleci /opt/circleci-workspace/pathsynch-frontend
-      
-#             echo "📁 Copying project into workspace..."
-#             cp -r /home/circleci/project/* /opt/circleci-workspace/pathsynch-frontend/
-#             cd /opt/circleci-workspace/pathsynch-frontend
-      
-#             echo "🧱 Installing dependencies..."
-#             npm ci --legacy-peer-deps
-      
-#             echo "🏗️ Running production build (CI=false to ignore ESLint warnings)..."
-#             CI=false npm run build
-      
-#             echo "✅ Build completed successfully."
-#             ls -al build | head -n 10
-
-
-#       - run:
-#           name: "Deploy Frontend Build to EC2"
-#           command: |
-#             set -eo pipefail
-#             echo "🚀 Starting deployment to /home/pathsync-frontend/"
-#             LIVE_DIR="/home/pathsync-frontend"
-#             BUILD_DIR="/opt/circleci-workspace/pathsynch-frontend/build"
-#             TARGET_DIR="${LIVE_DIR}/Merchant"
-#             TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)
-#             BACKUP_DIR="${LIVE_DIR}/Merchant_backup_${TIMESTAMP}"
-
-#             echo "📦 Backing up current Merchant directory..."
-#             if [ -d "${TARGET_DIR}" ]; then
-#               sudo mv ${TARGET_DIR} ${BACKUP_DIR}
-#               echo "✅ Backup created at ${BACKUP_DIR}"
-#             else
-#               echo "ℹ️ No previous Merchant folder found — fresh deployment."
-#             fi
-
-#             echo "📂 Creating new Merchant folder..."
-#             sudo mkdir -p ${TARGET_DIR}
-#             sudo cp -r ${BUILD_DIR}/* ${TARGET_DIR}/
-#             sudo chown -R pathsync-frontend:pathsync-frontend ${TARGET_DIR}
-#             sudo chmod -R 775 ${TARGET_DIR}
-#             echo "✅ New build deployed to ${TARGET_DIR}"
-
-#       - run:
-#           name: "Reload NGINX and Health Check"
-#           command: |
-#             echo "🔄 Reloading NGINX..."
-#             sudo nginx -t
-#             sudo systemctl reload nginx
-#             sudo systemctl status nginx --no-pager || true
-
-#             echo "🔍 Checking frontend availability..."
-#             if curl -s --max-time 10 http://localhost | grep -q "<!DOCTYPE html>"; then
-#               echo "✅ Frontend deployed and responding locally."
-#             else
-#               echo "⚠️ Deployment verification failed — rolling back."
-#               sudo rm -rf /home/pathsync-frontend/Merchant
-#               sudo mv ${BACKUP_DIR} /home/pathsync-frontend/Merchant
-#               sudo nginx -t && sudo systemctl reload nginx
-#               echo "🔁 Rollback complete."
-#               exit 1
-#             fi
-
-#             echo "🎯 Deployment successful! Visit https://pathsynch.com"
-#             exit 0
-
-# workflows:
-#   version: 2
-#   deploy_frontend_workflow:
-#     jobs:
-#       - deploy-pathsynch-frontend
-
 version: 2.1
 
 jobs:
@@ -174,6 +86,8 @@ jobs:
             sudo systemctl status nginx --no-pager || true
 
             echo "🔍 Checking frontend availability..."
+            sleep 10  # give workers time to spin up
+            
             if curl -s --max-time 15 https://pathsynch.com | grep -q "<!DOCTYPE html>"; then
               echo "✅ Frontend successfully served from NGINX (200 OK)."
             else
@@ -188,7 +102,7 @@ jobs:
 
             echo "🎯 Deployment completed successfully!"
             echo "🌍 Live at: https://pathsynch.com"
-
+            exit 0
 
 workflows:
   version: 2
