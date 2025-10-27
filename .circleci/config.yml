@@ -127,27 +127,38 @@ jobs:
           name: "Deploy Frontend Build to EC2"
           command: |
             set -eo pipefail
-            echo "🚀 Starting deployment to /home/pathsync-frontend/"
+            echo "🚀 Starting clean deployment..."
             LIVE_DIR="/home/pathsync-frontend"
             BUILD_DIR="/opt/circleci-workspace/pathsynch-frontend/build"
             TARGET_DIR="${LIVE_DIR}/Merchant"
             TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)
             BACKUP_DIR="${LIVE_DIR}/Merchant_backup_${TIMESTAMP}"
 
-            echo "📦 Backing up current Merchant directory..."
+            echo "📦 Backing up existing Merchant directory..."
             if [ -d "${TARGET_DIR}" ]; then
               sudo mv ${TARGET_DIR} ${BACKUP_DIR}
               echo "✅ Backup created at ${BACKUP_DIR}"
             else
-              echo "ℹ️ No previous Merchant folder found — fresh deployment."
+              echo "ℹ️ No previous Merchant directory found, proceeding fresh."
             fi
 
-            echo "📂 Deploying new build..."
-            # Move the entire build folder instead of just its contents
-            sudo mv ${BUILD_DIR} ${TARGET_DIR}
+            echo "🧱 Creating new Merchant directory..."
+            sudo mkdir -p ${TARGET_DIR}
+
+            echo "📂 Moving build folder into Merchant..."
+            sudo mv ${BUILD_DIR} ${TARGET_DIR}/build
+
+            echo "🔧 Setting permissions..."
             sudo chown -R pathsync-frontend:pathsync-frontend ${TARGET_DIR}
             sudo chmod -R 775 ${TARGET_DIR}
-            echo "✅ New build deployed to ${TARGET_DIR}"
+
+            echo "🧩 Verifying deployment..."
+            if [ -f "${TARGET_DIR}/build/index.html" ]; then
+              echo "✅ Frontend build deployed successfully at ${TARGET_DIR}/build"
+            else
+              echo "❌ Deployment failed — index.html missing!"
+              exit 1
+            fi
 
 
       - run:
