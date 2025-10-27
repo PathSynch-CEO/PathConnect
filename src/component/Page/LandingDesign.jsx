@@ -62,9 +62,11 @@ const LandingDesign = () => {
     //console.log("prod deets;",datas);
     setIsProcessingPayment(true);
     try {
-      const response = await fetch("https://api.pathsynch.com/v2/auth/stripe-payment", {
-      // const response = await fetch(
-      //   "http://localhost:8181/v2/auth/stripe-payment",{
+      const response = await fetch(
+        "https://api.pathsynch.com/v2/auth/stripe-payment",
+        {
+          // const response = await fetch(
+          //   "http://localhost:8181/v2/auth/stripe-payment",{
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -96,7 +98,9 @@ const LandingDesign = () => {
 
         localStorage.setItem("paymentDetails", JSON.stringify(paymentDetails));
 
-        const stripe = await loadStripe("pk_live_51OAeaRCwhZJHjP6KcmrheTOmDNRbdTweqGPX6SVbrQTF9DHi8P2xegWP61D6R1NqZ5GkiLQeU17hGvGSjB8VZGXR0099BPjO83");
+        const stripe = await loadStripe(
+          "pk_live_51OAeaRCwhZJHjP6KcmrheTOmDNRbdTweqGPX6SVbrQTF9DHi8P2xegWP61D6R1NqZ5GkiLQeU17hGvGSjB8VZGXR0099BPjO83"
+        );
         // const stripe = await loadStripe(
         //   "pk_test_51OAeaRCwhZJHjP6KxgcYEnNjl9krmgFtfkZi9bi3T7rvY8q0CDXjzeSrn5WBdvPALchyeiTz749HGS7VlrqBxsNP00T8zbvMfa"
         // );
@@ -279,28 +283,97 @@ const LandingDesign = () => {
 
               <div className="nfc-card-input-group">
                 <p>Address:</p>
-                <input type="text" value={locationDetails.address} readOnly />
+                <input
+                  type="text"
+                  value={locationDetails.address}
+                  onChange={(e) =>
+                    setLocationDetails((prev) => ({
+                      ...prev,
+                      address: e.target.value,
+                      mapUrl: "",
+                    }))
+                  }
+                />
               </div>
               <div className="nfc-card-input-group">
                 <p>City:</p>
-                <input type="text" value={locationDetails.city} readOnly />
+                <input
+                  type="text"
+                  value={locationDetails.city}
+                  onChange={(e) =>
+                    setLocationDetails((prev) => ({
+                      ...prev,
+                      city: e.target.value,
+                      mapUrl: "",
+                    }))
+                  }
+                />
               </div>
               <div className="nfc-card-input-group">
                 <p>Zip Code:</p>
-                <input type="text" value={locationDetails.zip} readOnly />
+                <input
+                  type="text"
+                  value={locationDetails.zip}
+                  onChange={(e) =>
+                    setLocationDetails((prev) => ({
+                      ...prev,
+                      zip: e.target.value,
+                      mapUrl: "",
+                    }))
+                  }
+                />
               </div>
               <div className="nfc-card-input-group">
                 <p>State:</p>
-                <input type="text" value={locationDetails.state} readOnly />
+                <input
+                  type="text"
+                  value={locationDetails.state}
+                  onChange={(e) =>
+                    setLocationDetails((prev) => ({
+                      ...prev,
+                      state: e.target.value,
+                      mapUrl: "",
+                    }))
+                  }
+                />
               </div>
               <div className="nfc-card-input-group">
                 <p>Country:</p>
-                <input type="text" value={locationDetails.country} readOnly />
+                <input
+                  type="text"
+                  value={locationDetails.country}
+                  onChange={(e) =>
+                    setLocationDetails((prev) => ({
+                      ...prev,
+                      country: e.target.value,
+                      mapUrl: "",
+                    }))
+                  }
+                />
               </div>
               <div className="nfc-card-input-group">
                 <p>Google Maps Link:</p>
-                <input type="text" value={locationDetails.mapUrl} readOnly />
+                {locationDetails.mapUrl ? (
+                  <a
+                    href={locationDetails.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "block",
+                      color: "#1a73e8",
+                      textDecoration: "underline",
+                      wordBreak: "break-all",
+                    }}
+                  >
+                    {locationDetails.mapUrl}
+                  </a>
+                ) : (
+                  <p style={{ color: "#999", fontStyle: "italic" }}>
+                    (No link available — select a google listed business)
+                  </p>
+                )}
               </div>
+
               <div className="nfc-card-input-group">
                 <p>Email:</p>
                 <input
