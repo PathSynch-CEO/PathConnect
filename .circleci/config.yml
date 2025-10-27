@@ -12,16 +12,21 @@ jobs:
           name: "Build React Frontend"
           command: |
             echo "🚀 Building PathSynch Frontend (PathConnect)"
+            # Clean and prepare isolated workspace
             sudo rm -rf /opt/circleci-workspace/pathsynch-frontend
             sudo mkdir -p /opt/circleci-workspace/pathsynch-frontend
             sudo chown -R circleci:circleci /opt/circleci-workspace/pathsynch-frontend
+      
             echo "📁 Copying project into workspace..."
-            cp -r . /opt/circleci-workspace/pathsynch-frontend/
+            cp -r /home/circleci/project/* /opt/circleci-workspace/pathsynch-frontend/
             cd /opt/circleci-workspace/pathsynch-frontend
+      
             echo "🧱 Installing dependencies..."
             npm ci --legacy-peer-deps
+      
             echo "🏗️ Running production build (CI=false to ignore ESLint warnings)..."
             CI=false npm run build
+      
             echo "✅ Build completed successfully."
             ls -al build | head -n 10
 
