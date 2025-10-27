@@ -25,7 +25,6 @@ jobs:
             echo "📁 Copying source files into workspace..."
             rsync -av --exclude '.git' --exclude 'node_modules' --exclude '.circleci' ./ /opt/circleci-workspace/pathsynch-frontend/
 
-
             cd /opt/circleci-workspace/pathsynch-frontend
             echo "📦 Installing dependencies..."
             npm ci --legacy-peer-deps
@@ -33,31 +32,30 @@ jobs:
             echo "🏗️ Building production bundle..."
             BUILD_STATUS=0
             BUILD_LOG_OK=true
-            
+
             (
               set +e
               set +o pipefail
-            
+
               CI=false npm run build
               BUILD_STATUS=$?
-            
+
               echo "✅ Build complete. Contents:"
               ls -al build | head -n 10 || true
-            
+
               # capture result in a temp file the parent shell can read
               echo $BUILD_STATUS > /tmp/build_status_code
             )
-            
+
             # read back actual npm build exit code
             BUILD_STATUS=$(cat /tmp/build_status_code)
-            
+
             if [ "$BUILD_STATUS" -ne 0 ]; then
               echo "❌ React build failed with exit code $BUILD_STATUS"
               exit $BUILD_STATUS
             fi
-            
-            echo "✅ React build succeeded."
 
+            echo "✅ React build succeeded."
 
       - run:
           name: "Deploy Frontend Build to EC2"
@@ -72,21 +70,21 @@ jobs:
 
             echo "📦 Backing up existing Merchant directory..."
             if [ -d "${TARGET_DIR}" ]; then
-              sudo mv ${TARGET_DIR} ${BACKUP_DIR}
+              sudo mv "${TARGET_DIR}" "${BACKUP_DIR}"
               echo "✅ Backup created at ${BACKUP_DIR}"
             else
               echo "ℹ️ No previous Merchant directory found, proceeding fresh."
             fi
 
             echo "🧱 Creating new Merchant directory..."
-            sudo mkdir -p ${TARGET_DIR}
+            sudo mkdir -p "${TARGET_DIR}"
 
             echo "📂 Moving build folder into Merchant..."
-            sudo mv ${BUILD_DIR} ${TARGET_DIR}/build
+            sudo mv "${BUILD_DIR}" "${TARGET_DIR}/build"
 
             echo "🔧 Setting permissions..."
-            sudo chown -R pathsync-frontend:pathsync-frontend ${TARGET_DIR}
-            sudo chmod -R 775 ${TARGET_DIR}
+            sudo chown -R pathsync-frontend:pathsync-frontend "${TARGET_DIR}"
+            sudo chmod -R 775 "${TARGET_DIR}"
 
             echo "🧩 Verifying deployment..."
             if [ -f "${TARGET_DIR}/build/index.html" ]; then
@@ -95,7 +93,7 @@ jobs:
               echo "❌ Deployment failed — index.html missing!"
               exit 1
             fi
-            
+
             echo "─────────────────────────────────────────────"
             echo "🔄 Reloading NGINX configuration"
             echo "─────────────────────────────────────────────"
@@ -106,14 +104,14 @@ jobs:
 
             echo "🔍 Checking frontend availability..."
             sleep 10  # give workers time to spin up
-            
-           if curl -s --max-time 15 https://pathsynch.com | grep -qi "<!doctype html"; then
+
+            if curl -s --max-time 15 https://pathsynch.com | grep -qi "<!doctype html"; then
               echo "✅ Frontend successfully served from NGINX (200 OK)."
             else
               echo "⚠️ Health check failed — initiating rollback..."
-              sudo rm -rf ${TARGET_DIR}
-              sudo mv ${BACKUP_DIR} ${TARGET_DIR}
-              sudo chown -R pathsync-frontend:pathsync-frontend ${TARGET_DIR}
+              sudo rm -rf "${TARGET_DIR}"
+              sudo mv "${BACKUP_DIR}" "${TARGET_DIR}"
+              sudo chown -R pathsync-frontend:pathsync-frontend "${TARGET_DIR}"
               sudo nginx -t && sudo systemctl reload nginx
               echo "🔁 Rollback complete."
               exit 1
