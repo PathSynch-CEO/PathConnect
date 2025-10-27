@@ -109,9 +109,10 @@ jobs:
             sudo mkdir -p /opt/circleci-workspace/pathsynch-frontend
             sudo chown -R circleci:circleci /opt/circleci-workspace/pathsynch-frontend
 
-            # 📁 Copy project source into workspace
+            # 📁 Copy project source into workspace safely
             echo "📁 Copying source files into workspace..."
-            cp -r ./* /opt/circleci-workspace/pathsynch-frontend/
+            rsync -av --exclude '.git' --exclude 'node_modules' --exclude '.circleci' ./ /opt/circleci-workspace/pathsynch-frontend/
+
 
             cd /opt/circleci-workspace/pathsynch-frontend
             echo "📦 Installing dependencies..."
