@@ -31,9 +31,33 @@ jobs:
             npm ci --legacy-peer-deps
 
             echo "🏗️ Building production bundle..."
-            CI=false npm run build || true
-            echo "✅ Build complete. Contents:"
-            ls -al build | head -n 10
+            BUILD_STATUS=0
+            BUILD_LOG_OK=true
+            
+            (
+              set +e
+              set +o pipefail
+            
+              CI=false npm run build
+              BUILD_STATUS=$?
+            
+              echo "✅ Build complete. Contents:"
+              ls -al build | head -n 10 || true
+            
+              # capture result in a temp file the parent shell can read
+              echo $BUILD_STATUS > /tmp/build_status_code
+            )
+            
+            # read back actual npm build exit code
+            BUILD_STATUS=$(cat /tmp/build_status_code)
+            
+            if [ "$BUILD_STATUS" -ne 0 ]; then
+              echo "❌ React build failed with exit code $BUILD_STATUS"
+              exit $BUILD_STATUS
+            fi
+            
+            echo "✅ React build succeeded."
+
 
       - run:
           name: "Deploy Frontend Build to EC2"
