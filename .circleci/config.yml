@@ -95,12 +95,7 @@ jobs:
               echo "❌ Deployment failed — index.html missing!"
               exit 1
             fi
-
-
-      - run:
-          name: "🔄 Reload NGINX + Health Check"
-          command: |
-            set -eo pipefail
+            
             echo "─────────────────────────────────────────────"
             echo "🔄 Reloading NGINX configuration"
             echo "─────────────────────────────────────────────"
@@ -112,7 +107,7 @@ jobs:
             echo "🔍 Checking frontend availability..."
             sleep 10  # give workers time to spin up
             
-            if curl -s --max-time 15 https://pathsynch.com | grep -q "<!DOCTYPE html>"; then
+           if curl -s --max-time 15 https://pathsynch.com | grep -qi "<!doctype html"; then
               echo "✅ Frontend successfully served from NGINX (200 OK)."
             else
               echo "⚠️ Health check failed — initiating rollback..."
