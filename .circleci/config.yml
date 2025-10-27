@@ -123,37 +123,31 @@ jobs:
             echo "✅ Build complete. Contents:"
             ls -al build | head -n 10
 
-
       - run:
-          name: "🚚 Deploy Build to EC2 Server"
+          name: "Deploy Frontend Build to EC2"
           command: |
             set -eo pipefail
-            echo "─────────────────────────────────────────────"
-            echo "🚚 Deploying new build to /home/pathsync-frontend/Merchant"
-            echo "─────────────────────────────────────────────"
-
+            echo "🚀 Starting deployment to /home/pathsync-frontend/"
             LIVE_DIR="/home/pathsync-frontend"
-            TARGET_DIR="${LIVE_DIR}/Merchant"
             BUILD_DIR="/opt/circleci-workspace/pathsynch-frontend/build"
+            TARGET_DIR="${LIVE_DIR}/Merchant"
             TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)
             BACKUP_DIR="${LIVE_DIR}/Merchant_backup_${TIMESTAMP}"
 
-            # 📦 Backup current deployment
+            echo "📦 Backing up current Merchant directory..."
             if [ -d "${TARGET_DIR}" ]; then
-              echo "📦 Backing up current Merchant directory..."
               sudo mv ${TARGET_DIR} ${BACKUP_DIR}
               echo "✅ Backup created at ${BACKUP_DIR}"
             else
-              echo "ℹ️ No previous Merchant folder found — fresh install."
+              echo "ℹ️ No previous Merchant folder found — fresh deployment."
             fi
 
-            # 🚀 Copy new build
-            echo "📂 Creating new Merchant folder..."
-            sudo mkdir -p ${TARGET_DIR}
-            sudo cp -r ${BUILD_DIR}/* ${TARGET_DIR}/
+            echo "📂 Deploying new build..."
+            # Move the entire build folder instead of just its contents
+            sudo mv ${BUILD_DIR} ${TARGET_DIR}
             sudo chown -R pathsync-frontend:pathsync-frontend ${TARGET_DIR}
             sudo chmod -R 775 ${TARGET_DIR}
-            echo "✅ New build deployed successfully."
+            echo "✅ New build deployed to ${TARGET_DIR}"
 
 
       - run:
