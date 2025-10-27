@@ -36,3 +36,66 @@
     }
   }
   
+  .privacy-page { background:#f9faf9; }
+.privacy-container {
+  max-width: 920px; margin: 3rem auto; padding: 2rem;
+  background:#fff; border-radius:12px; box-shadow: 0 2px 12px rgba(0,0,0,.05);
+}
+.privacy-title { text-align:center; color:#1b5e20; font-weight:700; }
+.privacy-updated { text-align:center; color:#6b7280; margin-bottom:1.5rem; }
+
+.pp-section { margin: 1.75rem 0; }
+.pp-h2 { color:#2e7d32; font-weight:700; font-size:1.25rem; margin-bottom:.5rem; }
+.pp-h3 { color:#336633; font-weight:600; margin:.75rem 0 .25rem; }
+.pp-text { color:#374151; line-height:1.65; }
+.pp-list { margin:.5rem 0 .5rem 1.2rem; color:#374151; }
+.pp-list li { margin:.25rem 0; }
+.pp-note { color:#475569; font-style:italic; margin-top:.5rem; }
+
+.pp-table-wrap { overflow-x:auto; margin:.75rem 0; }
+.pp-table { width:100%; border-collapse:collapse; }
+.pp-table th, .pp-table td { border:1px solid #e5e7eb; padding:.6rem .7rem; text-align:left; }
+.pp-table thead th { background:#f3f7f3; color:#1b5e20; }
+
+.pp-accordion-header {
+  width: 100%;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.75rem 0;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.pp-accordion-header:hover {
+  background-color: #f0f8f0;
+}
+
+.pp-icon {
+  font-size: 0.9rem;
+  color: #2e7d32;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+
+.pp-icon.open {
+  transform: rotate(180deg);
+}
+
+.pp-accordion-body {
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

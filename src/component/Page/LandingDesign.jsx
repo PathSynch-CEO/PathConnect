@@ -46,7 +46,7 @@ const LandingDesign = () => {
       zipCode: locationDetails.zip,
       state: locationDetails.state, // Just the state name
       country: locationDetails.country,
-      mapUrl: locationDetails.mapUrl
+      mapUrl: locationDetails.mapUrl,
     };
 
     // Store in localStorage
@@ -62,26 +62,30 @@ const LandingDesign = () => {
     //console.log("prod deets;",datas);
     setIsProcessingPayment(true);
     try {
-      const response = await fetch("https://api.pathsynch.com/v2/auth/stripe-payment", {
-      //const response = await fetch("http://localhost:8181/v2/auth/stripe-payment", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ 
-          name, 
-          unit_amount: datas?.totalPrice * 100, 
-          email,
-          productDetails: datas,
-          address: addressData // Send complete address data to API
-        }),
-      });
+      const response = await fetch(
+        "https://api.pathsynch.com/v2/auth/stripe-payment",
+        {
+          // const response = await fetch(
+          //   "http://localhost:8181/v2/auth/stripe-payment",{
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            unit_amount: datas?.totalPrice * 100,
+            email,
+            productDetails: datas,
+            address: addressData, // Send complete address data to API
+          }),
+        }
+      );
 
       const data = await response.json();
-      
+
       if (data.success) {
         localStorage.setItem("sessionId", data.sessionId);
-        
+
         const paymentDetails = {
           date: new Date().toISOString(),
           status: "pending",
@@ -89,15 +93,19 @@ const LandingDesign = () => {
           currency: "USD",
           businessInfo: addressData,
           product: datas,
-          sessionId: data.sessionId
+          sessionId: data.sessionId,
         };
-        
+
         localStorage.setItem("paymentDetails", JSON.stringify(paymentDetails));
 
-        const stripe = await loadStripe("pk_live_51OAeaRCwhZJHjP6KcmrheTOmDNRbdTweqGPX6SVbrQTF9DHi8P2xegWP61D6R1NqZ5GkiLQeU17hGvGSjB8VZGXR0099BPjO83");
-        //const stripe = await loadStripe("pk_test_51OAeaRCwhZJHjP6KxgcYEnNjl9krmgFtfkZi9bi3T7rvY8q0CDXjzeSrn5WBdvPALchyeiTz749HGS7VlrqBxsNP00T8zbvMfa");
-        const { error } = await stripe.redirectToCheckout({ 
-          sessionId: data.sessionId 
+        const stripe = await loadStripe(
+          "pk_live_51OAeaRCwhZJHjP6KcmrheTOmDNRbdTweqGPX6SVbrQTF9DHi8P2xegWP61D6R1NqZ5GkiLQeU17hGvGSjB8VZGXR0099BPjO83"
+        );
+        // const stripe = await loadStripe(
+        //   "pk_test_51OAeaRCwhZJHjP6KxgcYEnNjl9krmgFtfkZi9bi3T7rvY8q0CDXjzeSrn5WBdvPALchyeiTz749HGS7VlrqBxsNP00T8zbvMfa"
+        // );
+        const { error } = await stripe.redirectToCheckout({
+          sessionId: data.sessionId,
         });
 
         if (error) throw error;
@@ -107,9 +115,11 @@ const LandingDesign = () => {
     } catch (error) {
       console.error("Payment error:", error);
       alert(`Payment error: ${error.message}`);
-      
+
       // Update failed payment status
-      const paymentDetails = JSON.parse(localStorage.getItem("paymentDetails") || {});
+      const paymentDetails = JSON.parse(
+        localStorage.getItem("paymentDetails") || {}
+      );
       paymentDetails.status = "failed";
       paymentDetails.error = error.message;
       localStorage.setItem("paymentDetails", JSON.stringify(paymentDetails));
@@ -124,9 +134,15 @@ const LandingDesign = () => {
 
       const autocomplete = new window.google.maps.places.Autocomplete(
         inputRef.current,
-        { 
+        {
           types: ["establishment"],
-          fields: ["address_components", "formatted_address", "geometry", "name", "url"]
+          fields: [
+            "address_components",
+            "formatted_address",
+            "geometry",
+            "name",
+            "url",
+          ],
         }
       );
 
@@ -134,12 +150,18 @@ const LandingDesign = () => {
         const place = autocomplete.getPlace();
         if (!place.address_components) return;
 
-        let address = "", city = "", zip = "", state = "", country = "";
+        let address = "",
+          city = "",
+          zip = "",
+          state = "",
+          country = "";
 
         place.address_components.forEach((component) => {
           const type = component.types[0];
           if (type === "street_number" || type === "route") {
-            address = address ? `${address} ${component.long_name}` : component.long_name;
+            address = address
+              ? `${address} ${component.long_name}`
+              : component.long_name;
           } else if (type === "locality") {
             city = component.long_name;
           } else if (type === "postal_code") {
@@ -152,15 +174,17 @@ const LandingDesign = () => {
         });
 
         setLocationDetails({
-          address: address || place.formatted_address?.split(',')[0] || "",
+          address: address || place.formatted_address?.split(",")[0] || "",
           city,
           zip,
           state, // Only state name
           country,
-          mapUrl: place.url || ""
+          mapUrl: place.url || "",
         });
 
-        setName(place.name || address || place.formatted_address?.split(',')[0] || "");
+        setName(
+          place.name || address || place.formatted_address?.split(",")[0] || ""
+        );
       });
     };
 
@@ -178,7 +202,7 @@ const LandingDesign = () => {
   return (
     <div className="landing-page">
       <Header />
-      
+
       {isProcessingPayment && (
         <div className="loader-overlay">
           <div className="loader"></div>
@@ -215,7 +239,19 @@ const LandingDesign = () => {
         </div>
 
         <div className="nfc-card-info">
-          <h2>NFC Review Cards</h2>
+          <h2>
+            {(() => {
+              const plan = datas.plan || "";
+              const prefix = plan.slice(0, 2).toLowerCase();
+              const secondHalf = plan.slice(2).toUpperCase();
+
+              if (prefix === "qr") return `QR ${secondHalf}`;
+              if (prefix === "pc") return `PathConnect ${secondHalf}`;
+              if (prefix === "pm") return `PathManager ${secondHalf}`;
+
+              return plan; // fallback if no prefix matches
+            })()}
+          </h2>
           <p className="nfc-card-price">$ {datas?.totalPrice}</p>
 
           <div className="nfc-card-badges">
@@ -223,7 +259,8 @@ const LandingDesign = () => {
               <img src="truck.svg" alt="Fast delivery" /> Fast US delivery
             </span>
             <span className="nfc-badge">
-              <img src="days.png" alt="Money back" /> 14-day Money Back Guarantee
+              <img src="days.png" alt="Money back" /> 14-day Money Back
+              Guarantee
             </span>
           </div>
 
@@ -246,28 +283,97 @@ const LandingDesign = () => {
 
               <div className="nfc-card-input-group">
                 <p>Address:</p>
-                <input type="text" value={locationDetails.address} readOnly />
+                <input
+                  type="text"
+                  value={locationDetails.address}
+                  onChange={(e) =>
+                    setLocationDetails((prev) => ({
+                      ...prev,
+                      address: e.target.value,
+                      mapUrl: "",
+                    }))
+                  }
+                />
               </div>
               <div className="nfc-card-input-group">
                 <p>City:</p>
-                <input type="text" value={locationDetails.city} readOnly />
+                <input
+                  type="text"
+                  value={locationDetails.city}
+                  onChange={(e) =>
+                    setLocationDetails((prev) => ({
+                      ...prev,
+                      city: e.target.value,
+                      mapUrl: "",
+                    }))
+                  }
+                />
               </div>
               <div className="nfc-card-input-group">
                 <p>Zip Code:</p>
-                <input type="text" value={locationDetails.zip} readOnly />
+                <input
+                  type="text"
+                  value={locationDetails.zip}
+                  onChange={(e) =>
+                    setLocationDetails((prev) => ({
+                      ...prev,
+                      zip: e.target.value,
+                      mapUrl: "",
+                    }))
+                  }
+                />
               </div>
               <div className="nfc-card-input-group">
                 <p>State:</p>
-                <input type="text" value={locationDetails.state} readOnly />
+                <input
+                  type="text"
+                  value={locationDetails.state}
+                  onChange={(e) =>
+                    setLocationDetails((prev) => ({
+                      ...prev,
+                      state: e.target.value,
+                      mapUrl: "",
+                    }))
+                  }
+                />
               </div>
               <div className="nfc-card-input-group">
                 <p>Country:</p>
-                <input type="text" value={locationDetails.country} readOnly />
+                <input
+                  type="text"
+                  value={locationDetails.country}
+                  onChange={(e) =>
+                    setLocationDetails((prev) => ({
+                      ...prev,
+                      country: e.target.value,
+                      mapUrl: "",
+                    }))
+                  }
+                />
               </div>
               <div className="nfc-card-input-group">
                 <p>Google Maps Link:</p>
-                <input type="text" value={locationDetails.mapUrl} readOnly />
+                {locationDetails.mapUrl ? (
+                  <a
+                    href={locationDetails.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "block",
+                      color: "#1a73e8",
+                      textDecoration: "underline",
+                      wordBreak: "break-all",
+                    }}
+                  >
+                    {locationDetails.mapUrl}
+                  </a>
+                ) : (
+                  <p style={{ color: "#999", fontStyle: "italic" }}>
+                    (No link available — select a google listed business)
+                  </p>
+                )}
               </div>
+
               <div className="nfc-card-input-group">
                 <p>Email:</p>
                 <input
@@ -334,9 +440,9 @@ const LandingDesign = () => {
         <div className="heading-wrap">
           <h3>Choose the Right Plan for Your Business</h3>
           <p>
-            At PathSynch, we understand that every business is unique. That's why
-            we offer a tiered pricing model designed to meet the needs of your
-            businesses, with optional add-ons to enhance your subscription,
+            At PathSynch, we understand that every business is unique. That's
+            why we offer a tiered pricing model designed to meet the needs of
+            your businesses, with optional add-ons to enhance your subscription,
             putting you on the Path to success.
           </p>
         </div>

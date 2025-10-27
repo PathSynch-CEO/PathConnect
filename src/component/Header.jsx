@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import React, { useState } from "react";
+import { QrCode, Bot, Handshake, Newspaper } from "lucide-react";
+
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isPlatformOpen, setIsPlatformOpen] = useState(false);
+  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
+
   const location = useLocation();
 
   // List of all platform sub-pages
   const platformPages = [
-    '/product-page',
-    '/pathconnect-page',
-    '/pathcommercesync',
-    '/pathmanager'
+    "/product-page",
+    "/pathconnect-page",
+    "/pathcommercesync",
+    "/pathmanager",
   ];
 
   // Check if current route is a platform sub-page
@@ -27,16 +31,18 @@ const Header = () => {
             </div>
           </Link>
           <ul className="nav-links">
-            <li 
+            <li
               onMouseEnter={() => setIsPlatformOpen(true)}
               onMouseLeave={() => setIsPlatformOpen(false)}
             >
-              <div className={`nav-link ${isPlatformActive ? 'active-link' : ''}`}>
+              <div
+                className={`nav-link ${isPlatformActive ? "active-link" : ""}`}
+              >
                 Platform
               </div>
-              
+
               {isPlatformOpen && (
-                <div 
+                <div
                   className="platform-dropdown"
                   onMouseEnter={() => setIsPlatformOpen(true)}
                   onMouseLeave={() => setIsPlatformOpen(false)}
@@ -45,13 +51,20 @@ const Header = () => {
                     <div className="dropdown-column">
                       <ul className="platform-features">
                         <li>
-                          <NavLink 
-                            to="/product-page" 
-                            className={({ isActive }) => isActive ? 'feature-item active' : 'feature-item'}
+                          <NavLink
+                            to="/product-page"
+                            className={({ isActive }) =>
+                              isActive ? "feature-item active" : "feature-item"
+                            }
                             onClick={() => setIsPlatformOpen(false)}
                           >
                             <div className="feature-icon">
-                              <img className="a1" src="a1.png" style={{width:"40px"}} alt="Marketplace" />
+                              <img
+                                className="a1"
+                                src="a1.png"
+                                style={{ width: "40px" }}
+                                alt="Marketplace"
+                              />
                             </div>
                             <div className="feature-text">
                               <h4>Marketplace</h4>
@@ -60,13 +73,20 @@ const Header = () => {
                           </NavLink>
                         </li>
                         <li>
-                          <NavLink 
-                            to="/pathconnect-page" 
-                            className={({ isActive }) => isActive ? 'feature-item active' : 'feature-item'}
+                          <NavLink
+                            to="/pathconnect-page"
+                            className={({ isActive }) =>
+                              isActive ? "feature-item active" : "feature-item"
+                            }
                             onClick={() => setIsPlatformOpen(false)}
                           >
                             <div className="feature-icon">
-                              <img className="a1" src="a2.svg" style={{width:"40px"}} alt="PathConnect" />
+                              <img
+                                className="a1"
+                                src="a2.svg"
+                                style={{ width: "40px" }}
+                                alt="PathConnect"
+                              />
                             </div>
                             <div className="feature-text">
                               <h4>PathConnect</h4>
@@ -75,13 +95,37 @@ const Header = () => {
                           </NavLink>
                         </li>
                         <li>
-                          <NavLink 
-                            to="/pathcommercesync" 
-                            className={({ isActive }) => isActive ? 'feature-item active' : 'feature-item'}
+                          <NavLink
+                            to="/qrsynch-page"
+                            className={({ isActive }) =>
+                              isActive ? "feature-item active" : "feature-item"
+                            }
                             onClick={() => setIsPlatformOpen(false)}
                           >
                             <div className="feature-icon">
-                              <img className="a1" src="a3.svg" style={{width:"40px"}} alt="CommerceSynch" />
+                              <QrCode color="#2d5c3b" size={40} />
+                            </div>
+                            <div className="feature-text">
+                              <h4>QRSynch</h4>
+                              <p>Custom built ShortLinks and QR Codes</p>
+                            </div>
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink
+                            to="/pathcommercesync"
+                            className={({ isActive }) =>
+                              isActive ? "feature-item active" : "feature-item"
+                            }
+                            onClick={() => setIsPlatformOpen(false)}
+                          >
+                            <div className="feature-icon">
+                              <img
+                                className="a1"
+                                src="a3.svg"
+                                style={{ width: "40px" }}
+                                alt="CommerceSynch"
+                              />
                             </div>
                             <div className="feature-text">
                               <h4>CommerceSynch</h4>
@@ -90,17 +134,41 @@ const Header = () => {
                           </NavLink>
                         </li>
                         <li>
-                          <NavLink 
-                            to="/pathmanager" 
-                            className={({ isActive }) => isActive ? 'feature-item active' : 'feature-item'}
+                          <NavLink
+                            to="/pathmanager"
+                            className={({ isActive }) =>
+                              isActive ? "feature-item active" : "feature-item"
+                            }
                             onClick={() => setIsPlatformOpen(false)}
                           >
                             <div className="feature-icon">
-                              <img className="a1" src="4th.jpeg" style={{width:"40px"}} alt="PathManager" />
+                              <img
+                                className="a1"
+                                src="4th.jpeg"
+                                style={{ width: "40px" }}
+                                alt="PathManager"
+                              />
                             </div>
                             <div className="feature-text">
                               <h4>PathManager</h4>
                               <p>Business Intelligence & Actionable Items</p>
+                            </div>
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink
+                            to="/synchmate-app"
+                            className={({ isActive }) =>
+                              isActive ? "feature-item active" : "feature-item"
+                            }
+                            onClick={() => setIsPlatformOpen(false)}
+                          >
+                            <div className="feature-icon">
+                              <Bot color="#2d5c3b" size={40} />
+                            </div>
+                            <div className="feature-text">
+                              <h4>SynchMate</h4>
+                              <p>Custom AI-chat-assistant for your website</p>
                             </div>
                           </NavLink>
                         </li>
@@ -113,7 +181,7 @@ const Header = () => {
             <li>
               <NavLink
                 to="/pricing-page"
-                className={({ isActive }) => (isActive ? 'active-link' : '')}
+                className={({ isActive }) => (isActive ? "active-link" : "")}
               >
                 Pricing
               </NavLink>
@@ -121,18 +189,63 @@ const Header = () => {
             <li>
               <NavLink
                 to="/aboutus"
-                className={({ isActive }) => (isActive ? 'active-link' : '')}
+                className={({ isActive }) => (isActive ? "active-link" : "")}
               >
                 Company
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="/becomepartner"
-                className={({ isActive }) => (isActive ? 'active-link' : '')}
-              >
-                Resources
-              </NavLink>
+            <li
+              onMouseEnter={() => setIsResourcesOpen(true)}
+              onMouseLeave={() => setIsResourcesOpen(false)}
+            >
+              <div className="nav-link">Resources</div>
+
+              {isResourcesOpen && (
+                <div
+                  className="platform-dropdown"
+                  onMouseEnter={() => setIsResourcesOpen(true)}
+                  onMouseLeave={() => setIsResourcesOpen(false)}
+                >
+                  <div className="dropdown-content">
+                    <ul className="platform-features">
+                      <li>
+                        <NavLink
+                          to="/becomepartner"
+                          className={({ isActive }) =>
+                            isActive ? "feature-item active" : "feature-item"
+                          }
+                          onClick={() => setIsResourcesOpen(false)}
+                        >
+                          <div className="feature-icon">
+                            <Handshake color="#2d5c3b" size={40} />
+                          </div>
+                          <div className="feature-text">
+                            <h4>Partner Program</h4>
+                            <p>Collaborate and grow together</p>
+                          </div>
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          to="/blog"
+                          className={({ isActive }) =>
+                            isActive ? "feature-item active" : "feature-item"
+                          }
+                          onClick={() => setIsResourcesOpen(false)}
+                        >
+                          <div className="feature-icon">
+                            <Newspaper color="#2d5c3b" size={40} />
+                          </div>
+                          <div className="feature-text">
+                            <h4>Blog</h4>
+                            <p>Insights, updates, and stories</p>
+                          </div>
+                        </NavLink>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              )}
             </li>
           </ul>
           <div className="actions">

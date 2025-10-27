@@ -16,7 +16,7 @@ const PaymentSuccess = () => {
       try {
         // Making the request with sessionId in the path
         const response = await fetch(`https://api.pathsynch.com/v2/auth/verify-payment/${sessionId}`);
-        //const response = await fetch(`http://localhost:8181/v2/auth/verify-payment/${sessionId}`);
+        // const response = await fetch(`http://localhost:8181/v2/auth/verify-payment/${sessionId}`);
         if (!response.ok) {
           throw new Error('Verification request failed');
         }

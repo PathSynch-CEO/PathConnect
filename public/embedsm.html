@@ -1,0 +1,19 @@
+<script>
+    (function () {
+      var KEY = 'pk_live_test_123'; // <-- your actual public key in DB
+      var s = document.createElement('script');
+      s.src = 'http://localhost:8080/widget.js?v=' + Date.now(); // cache-bust immutable file
+      s.async = true;
+      s.dataset.synchmateKey = KEY; // optional path
+      s.onload = function () {
+        if (window.SynchMate && typeof window.SynchMate.init === 'function') {
+          window.SynchMate.init({ publicKey: KEY });     // explicit key path
+          window.__sm_last_key = KEY;           // used by send() fallback
+        } else {
+          console.error('SynchMate not available after script load');
+        }
+      };
+      document.head.appendChild(s);
+    })();
+  </script>
+  
